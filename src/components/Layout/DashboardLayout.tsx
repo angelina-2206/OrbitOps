@@ -82,15 +82,15 @@ export const DashboardLayout: React.FC = () => {
       <LeftSidebar activeTab={activeTab} onNavigate={handleNavigate} />
 
       {/* Main Content Area */}
-      <div
-        id="dashboard-scroll-area"
-        className="flex-1 flex flex-col min-w-0 h-full overflow-y-auto custom-scrollbar bg-[#070B14]"
-      >
+      <div className="flex-1 flex flex-col min-w-0 h-full overflow-hidden bg-[#070B14]">
         {/* Topbar Header */}
         <Topbar />
 
         {/* Dashboard Grid Container */}
-        <main className="flex-1 p-3 grid grid-cols-12 gap-3 auto-rows-auto min-h-0">
+        <main
+          id="dashboard-scroll-area"
+          className="flex-1 overflow-y-auto p-3 grid grid-cols-12 gap-3 auto-rows-min min-h-0 custom-scrollbar"
+        >
           {/* Row 1 & 2 Left Column: Telemetry Overview */}
           <div
             id="panel-telemetry"
