@@ -12,6 +12,7 @@ interface TelemetryState {
   audioMuted: boolean;
   graphPaused: boolean;
   manualErrorCode: string;
+  showLandingScreen: boolean;
 
   // Actions
   startTelemetry: () => void;
@@ -23,6 +24,7 @@ interface TelemetryState {
   toggleAudio: () => void;
   toggleGraphPause: () => void;
   setConnectionMode: (mode: ConnectionMode) => void;
+  setShowLandingScreen: (show: boolean) => void;
 }
 
 const initialPacket: TelemetryPacket = {
@@ -65,6 +67,7 @@ export const useTelemetryStore = create<TelemetryState>((set, get) => ({
   audioMuted: false,
   graphPaused: false,
   manualErrorCode: '0000',
+  showLandingScreen: true,
 
   startTelemetry: () => {
     set({ isStreaming: true });
@@ -129,5 +132,9 @@ export const useTelemetryStore = create<TelemetryState>((set, get) => ({
   setConnectionMode: (mode: ConnectionMode) => {
     set({ connectionMode: mode });
     get().addLog('INFO', `Telemetry source mode changed to ${mode}.`);
+  },
+
+  setShowLandingScreen: (show: boolean) => {
+    set({ showLandingScreen: show });
   },
 }));

@@ -10,6 +10,7 @@ import { CameraFeed } from '../Camera/CameraFeed';
 import { ErrorSystemPanel } from '../ErrorSystem/ErrorSystemPanel';
 import { MissionTimeline } from '../Timeline/MissionTimeline';
 import { SystemHealthPanel } from '../Health/SystemHealthPanel';
+import { EventLogPanel } from '../Logs/EventLogPanel';
 import { FooterBar } from './FooterBar';
 import { CommsModal } from '../Modals/CommsModal';
 import { ProfileModal } from '../Modals/ProfileModal';
@@ -139,28 +140,37 @@ export const DashboardLayout: React.FC = () => {
             <CameraFeed />
           </div>
 
-          {/* Row 3 (Bottom Row) Item 1: Mission Timeline */}
+          {/* Row 3 Bottom Grid Items */}
+          {/* Item 1: Mission Timeline */}
           <div
             id="panel-timeline"
-            className={`col-span-12 md:col-span-4 min-h-[140px] ${getHighlightClass('timeline')}`}
+            className={`col-span-12 md:col-span-6 xl:col-span-3 min-h-[160px] ${getHighlightClass('timeline')}`}
           >
             <MissionTimeline />
           </div>
 
-          {/* Row 3 (Bottom Row) Item 2: 4-Digit Error Code */}
+          {/* Item 2: 4-Digit Error Code */}
           <div
             id="panel-diagnostics"
-            className={`col-span-12 md:col-span-4 min-h-[140px] ${getHighlightClass('diagnostics')}`}
+            className={`col-span-12 md:col-span-6 xl:col-span-3 min-h-[160px] ${getHighlightClass('diagnostics')}`}
           >
             <ErrorSystemPanel />
           </div>
 
-          {/* Row 3 (Bottom Row) Item 3: System Health Gauges */}
+          {/* Item 3: System Health Gauges */}
           <div
             id="panel-health"
-            className={`col-span-12 md:col-span-4 min-h-[140px] ${getHighlightClass('health')}`}
+            className={`col-span-12 md:col-span-6 xl:col-span-3 min-h-[160px] ${getHighlightClass('health')}`}
           >
             <SystemHealthPanel />
+          </div>
+
+          {/* Item 4: Real-Time Event Audit Log */}
+          <div
+            id="panel-logs"
+            className={`col-span-12 md:col-span-6 xl:col-span-3 min-h-[160px] ${getHighlightClass('logs')}`}
+          >
+            <EventLogPanel />
           </div>
         </main>
 

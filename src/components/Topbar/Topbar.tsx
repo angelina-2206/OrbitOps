@@ -13,7 +13,8 @@ import {
   Settings,
   Wifi,
   Activity,
-  Clock
+  Clock,
+  Rocket
 } from 'lucide-react';
 import { toast } from 'sonner';
 
@@ -31,7 +32,8 @@ export const Topbar: React.FC = () => {
     stopTelemetry,
     resetPackets,
     toggleAudio,
-    addLog
+    addLog,
+    setShowLandingScreen
   } = useTelemetryStore();
 
   useEffect(() => {
@@ -177,6 +179,17 @@ export const Topbar: React.FC = () => {
           title="Reset Telemetry Packets"
         >
           <RotateCcw className="w-4 h-4 text-slate-400 hover:text-slate-200" />
+        </button>
+
+        <button
+          onClick={() => {
+            setShowLandingScreen(true);
+            toast.info('Opening Mission Initialization Screen');
+          }}
+          className="p-1.5 rounded-md bg-[#111827] hover:bg-[#1F2937] text-slate-300 border border-[#1F2937] transition-all"
+          title="Re-Initialize Mission Screen"
+        >
+          <Rocket className="w-4 h-4 text-[#00D4FF]" />
         </button>
 
         <button
