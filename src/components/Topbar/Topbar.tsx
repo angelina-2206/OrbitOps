@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useTelemetryStore } from '../../store/useTelemetryStore';
 import { exportTelemetryCSV, exportTelemetryJSON } from '../../services/exportService';
 import { formatMissionTime, getFormattedUTCTime } from '../../utils/formatters';
+import { OrbitOpsLogo } from '../Branding/OrbitOpsLogo';
 import {
   Radio,
   Play,
@@ -76,8 +77,9 @@ export const Topbar: React.FC = () => {
 
   return (
     <header className="h-14 bg-[#070B14] border-b border-[#1F2937] px-4 flex items-center justify-between shadow-lg select-none z-40 sticky top-0 flex-shrink-0">
-      {/* Left Brand Title */}
+      {/* Left Brand Title with OrbitOps Logo */}
       <div className="flex items-center space-x-3">
+        <OrbitOpsLogo size={34} />
         <div>
           <div className="flex items-center space-x-2">
             <h1 className="font-orbitron font-bold text-base text-slate-100 tracking-wider flex items-center gap-2">

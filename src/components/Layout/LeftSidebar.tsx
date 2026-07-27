@@ -1,4 +1,5 @@
 import React from 'react';
+import { OrbitOpsLogo } from '../Branding/OrbitOpsLogo';
 import {
   Radio,
   LayoutGrid,
@@ -35,7 +36,7 @@ export const LeftSidebar: React.FC<LeftSidebarProps> = ({ activeTab, onNavigate 
         title="OrbitOps GCS Home"
         className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-[#111827] border border-[#00D4FF]/40 text-[#00D4FF] shadow-cyan-glow mb-6 cursor-pointer hover:scale-105 transition-transform"
       >
-        <Radio className="w-5 h-5 animate-pulse" />
+        <OrbitOpsLogo size={26} />
       </div>
 
       {/* Navigation Icon List */}

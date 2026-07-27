@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTelemetryStore } from '../../store/useTelemetryStore';
+import { OrbitOpsLogo } from '../Branding/OrbitOpsLogo';
 import { ShieldCheck, User, Radio, Cpu } from 'lucide-react';
 
 export const FooterBar: React.FC = () => {
@@ -10,7 +11,7 @@ export const FooterBar: React.FC = () => {
       {/* Left: Version & Build Info */}
       <div className="flex items-center space-x-3">
         <span className="font-orbitron font-bold text-slate-200 tracking-wider flex items-center gap-1.5 text-xs">
-          <span className="w-2 h-2 rounded-full bg-[#00D4FF]" />
+          <OrbitOpsLogo size={18} />
           ORBIT<span className="text-[#00D4FF]">OPS</span> GCS
           <span className="text-[10px] text-[#00D4FF] bg-[#00D4FF]/10 px-1.5 py-0.2 rounded border border-[#00D4FF]/30 font-mono font-normal">
             v2.0.0
