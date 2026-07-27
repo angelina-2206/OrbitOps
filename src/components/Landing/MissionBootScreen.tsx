@@ -238,47 +238,65 @@ export const MissionBootScreen: React.FC<MissionBootScreenProps> = ({ onComplete
         </div>
 
         {/* Animated Feature Status Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 font-mono text-xs text-left max-w-3xl mx-auto pt-1">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 font-mono text-xs text-left max-w-4xl mx-auto pt-2">
           {/* Card 1 */}
-          <div className="bg-[#0C1220]/80 border border-[#1F2937] p-3 rounded-xl space-y-1.5 hover:border-[#00D4FF]/40 transition-colors">
-            <div className="flex items-center justify-between">
-              <span className="text-slate-400 text-[10px] uppercase font-bold flex items-center gap-1">
-                <Rocket className="w-3.5 h-3.5 text-[#00D4FF]" /> PAYLOAD ARCHITECTURE
-              </span>
-              <span className="text-[9px] px-1.5 py-0.2 rounded bg-[#00FF84]/10 text-[#00FF84] border border-[#00FF84]/30 font-bold flex items-center gap-1">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#00FF84] animate-pulse" /> ✓ Initialized
+          <div className="bg-[#0C1220]/90 border border-[#1F2937] p-4 rounded-2xl space-y-3 hover:border-[#00D4FF]/50 transition-all duration-300 shadow-lg group">
+            <div className="flex items-start justify-between gap-2 border-b border-[#1F2937]/80 pb-2.5">
+              <div className="flex items-center space-x-2 min-w-0">
+                <div className="p-2 rounded-xl bg-[#00D4FF]/10 border border-[#00D4FF]/30 flex-shrink-0 text-[#00D4FF]">
+                  <Rocket className="w-4 h-4" />
+                </div>
+                <div className="min-w-0">
+                  <p className="text-slate-400 text-[9px] uppercase font-bold tracking-wider font-mono">PAYLOAD ARCHITECTURE</p>
+                  <p className="text-slate-100 font-orbitron font-bold text-xs truncate mt-0.5">CANSAT & CUBESAT</p>
+                </div>
+              </div>
+
+              <span className="text-[10px] px-2.5 py-1 rounded-full bg-[#00FF84]/10 text-[#00FF84] border border-[#00FF84]/30 font-bold flex items-center gap-1.5 whitespace-nowrap flex-shrink-0">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#00FF84] animate-pulse" /> Initialized
               </span>
             </div>
-            <p className="text-slate-200 font-bold font-orbitron text-xs">CANSAT & CUBESAT</p>
-            <p className="text-slate-500 text-[10px]">TM/TC Telecommand Bus Processing</p>
+            <p className="text-slate-400 text-[11px] leading-relaxed">TM/TC Telecommand Bus Processing</p>
           </div>
 
           {/* Card 2 */}
-          <div className="bg-[#0C1220]/80 border border-[#1F2937] p-3 rounded-xl space-y-1.5 hover:border-[#00D4FF]/40 transition-colors">
-            <div className="flex items-center justify-between">
-              <span className="text-slate-400 text-[10px] uppercase font-bold flex items-center gap-1">
-                <Layers className="w-3.5 h-3.5 text-[#00D4FF]" /> VISUALIZATION ENGINE
-              </span>
-              <span className="text-[9px] px-1.5 py-0.2 rounded bg-[#00D4FF]/10 text-[#00D4FF] border border-[#00D4FF]/30 font-bold flex items-center gap-1">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#00D4FF] animate-pulse" /> ✓ Rendering Active
+          <div className="bg-[#0C1220]/90 border border-[#1F2937] p-4 rounded-2xl space-y-3 hover:border-[#00D4FF]/50 transition-all duration-300 shadow-lg group">
+            <div className="flex items-start justify-between gap-2 border-b border-[#1F2937]/80 pb-2.5">
+              <div className="flex items-center space-x-2 min-w-0">
+                <div className="p-2 rounded-xl bg-[#00D4FF]/10 border border-[#00D4FF]/30 flex-shrink-0 text-[#00D4FF]">
+                  <Layers className="w-4 h-4" />
+                </div>
+                <div className="min-w-0">
+                  <p className="text-slate-400 text-[9px] uppercase font-bold tracking-wider font-mono">VISUALIZATION ENGINE</p>
+                  <p className="text-slate-100 font-orbitron font-bold text-xs truncate mt-0.5">GIS & 3D WEBGL</p>
+                </div>
+              </div>
+
+              <span className="text-[10px] px-2.5 py-1 rounded-full bg-[#00D4FF]/10 text-[#00D4FF] border border-[#00D4FF]/30 font-bold flex items-center gap-1.5 whitespace-nowrap flex-shrink-0">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#00D4FF] animate-pulse" /> Rendering Active
               </span>
             </div>
-            <p className="text-slate-200 font-bold font-orbitron text-xs">GIS & 3D WEBGL</p>
-            <p className="text-slate-500 text-[10px]">Real-Time Trajectory & Euler Attitude</p>
+            <p className="text-slate-400 text-[11px] leading-relaxed">Real-Time Trajectory & Euler Attitude</p>
           </div>
 
           {/* Card 3 (Amber Accent) */}
-          <div className="bg-[#0C1220]/80 border border-[#1F2937] p-3 rounded-xl space-y-1.5 hover:border-[#FFC857]/40 transition-colors">
-            <div className="flex items-center justify-between">
-              <span className="text-slate-400 text-[10px] uppercase font-bold flex items-center gap-1">
-                <Wifi className="w-3.5 h-3.5 text-[#FFC857]" /> HARDWARE INTERFACE
-              </span>
-              <span className="text-[9px] px-1.5 py-0.2 rounded bg-[#FFC857]/10 text-[#FFC857] border border-[#FFC857]/30 font-bold flex items-center gap-1">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#FFC857] animate-pulse" /> Waiting for Device
+          <div className="bg-[#0C1220]/90 border border-[#1F2937] p-4 rounded-2xl space-y-3 hover:border-[#FFC857]/50 transition-all duration-300 shadow-lg group">
+            <div className="flex items-start justify-between gap-2 border-b border-[#1F2937]/80 pb-2.5">
+              <div className="flex items-center space-x-2 min-w-0">
+                <div className="p-2 rounded-xl bg-[#FFC857]/10 border border-[#FFC857]/30 flex-shrink-0 text-[#FFC857]">
+                  <Wifi className="w-4 h-4" />
+                </div>
+                <div className="min-w-0">
+                  <p className="text-slate-400 text-[9px] uppercase font-bold tracking-wider font-mono">HARDWARE INTERFACE</p>
+                  <p className="text-slate-100 font-orbitron font-bold text-xs truncate mt-0.5">WEB SERIAL API</p>
+                </div>
+              </div>
+
+              <span className="text-[10px] px-2.5 py-1 rounded-full bg-[#FFC857]/10 text-[#FFC857] border border-[#FFC857]/30 font-bold flex items-center gap-1.5 whitespace-nowrap flex-shrink-0">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#FFC857] animate-pulse" /> Standby
               </span>
             </div>
-            <p className="text-slate-200 font-bold font-orbitron text-xs">WEB SERIAL API</p>
-            <p className="text-slate-500 text-[10px]">ESP32 / Arduino / LoRa RF Receivers</p>
+            <p className="text-slate-400 text-[11px] leading-relaxed">ESP32 / Arduino / LoRa RF Receivers</p>
           </div>
         </div>
 
