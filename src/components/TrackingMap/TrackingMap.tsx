@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useTelemetryStore } from '../../store/useTelemetryStore';
 import { MapContainer, TileLayer, Marker, Popup, Polyline, Circle, useMap } from 'react-leaflet';
 import L from 'leaflet';
-import { Navigation, Locate, Layers, Crosshair, MapPin, Satellite, Eye, EyeOff, Maximize2, Compass, Activity, Radio, RefreshCw, Move } from 'lucide-react';
+import { Navigation, Locate, Layers, Crosshair, MapPin, Satellite, Eye, EyeOff, Maximize2, Compass, Activity, Radio, RefreshCw, Move, Minus, Plus } from 'lucide-react';
 import { toast } from 'sonner';
 
 // Custom high-tech SVG markers with drop-shadow glow effects
@@ -275,9 +275,10 @@ export const TrackingMap: React.FC = () => {
             <div className="flex items-center gap-1.5">
               <button
                 onClick={() => setIsHudExpanded(!isHudExpanded)}
-                className="text-[10px] text-slate-400 hover:text-slate-100"
+                className="p-0.5 rounded text-slate-400 hover:text-slate-100 hover:bg-[#111827] transition-all"
+                title={isHudExpanded ? 'Collapse HUD' : 'Expand HUD'}
               >
-                {isHudExpanded ? '[—]' : '[+]'}
+                {isHudExpanded ? <Minus className="w-3 h-3" /> : <Plus className="w-3 h-3" />}
               </button>
               <span className="w-2 h-2 rounded-full bg-[#00FF84] animate-ping" />
             </div>
