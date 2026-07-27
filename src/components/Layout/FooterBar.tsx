@@ -17,10 +17,12 @@ export const FooterBar: React.FC = () => {
             v2.0.0
           </span>
         </span>
-        <span className="text-slate-600">|</span>
-        <span className="text-[10px] text-slate-400 font-mono hidden sm:inline flex items-center gap-1">
-          <Cpu className="w-3 h-3 text-[#00D4FF]" /> MODE: <span className="text-slate-200 font-bold">{connectionMode}</span>
-        </span>
+        <span className="text-slate-600 font-normal">|</span>
+        <div className="hidden sm:inline-flex items-center space-x-1.5 bg-[#111827] px-2 py-0.5 rounded border border-[#1F2937] text-[10px] font-mono">
+          <Cpu className="w-3 h-3 text-[#00D4FF]" />
+          <span className="text-slate-400">MODE:</span>
+          <span className="text-[#00D4FF] font-bold font-orbitron tracking-wider">{connectionMode}</span>
+        </div>
       </div>
 
       {/* Right: Operator & Operational Status */}
