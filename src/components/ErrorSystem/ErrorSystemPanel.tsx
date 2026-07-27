@@ -47,20 +47,25 @@ export const ErrorSystemPanel: React.FC = () => {
       {/* Main Content Layout */}
       <div className="flex-1 flex flex-col justify-between space-y-2 font-mono">
         {/* Large 4-Digit Display & Main Status Banner */}
-        <div className="flex items-center justify-between bg-[#0A0F1A] p-2 rounded-xl border border-[#1F2937]">
+        <div className="flex items-center justify-between bg-[#0A0F1A] p-2.5 rounded-xl border border-[#1F2937]">
           {/* 4 Digit Boxes */}
           <div className="flex items-center space-x-2">
             {digits.map((digit, idx) => (
               <div
                 key={idx}
-                className={`w-9 h-11 rounded-lg border flex flex-col items-center justify-center font-orbitron font-extrabold text-xl shadow-inner ${
+                className={`w-10 h-12 rounded-xl border flex flex-col items-center justify-between py-1 px-1.5 font-orbitron shadow-inner relative overflow-hidden ${
                   digit === '0'
                     ? 'bg-[#111827] text-[#00FF84] border-[#00FF84]/40 shadow-green-glow'
                     : 'bg-red-500/20 text-red-400 border-red-500/50 shadow-red-glow animate-pulse'
                 }`}
               >
-                <span>{digit}</span>
-                <span className="text-[7px] font-mono text-slate-500 font-normal">D{idx + 1}</span>
+                {/* Top Subsystem Badge Label */}
+                <span className="text-[8px] font-mono text-slate-400 font-semibold leading-none pt-0.5">D{idx + 1}</span>
+
+                {/* Perfectly Centered Digit Number */}
+                <span className="font-orbitron font-extrabold text-lg leading-none my-auto">
+                  {digit}
+                </span>
               </div>
             ))}
           </div>
