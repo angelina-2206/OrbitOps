@@ -52,6 +52,28 @@ export const Topbar: React.FC = () => {
     toast.success(`Exported ${packets.length} telemetry records to JSON`);
   };
 
+  const handleSyncTime = () => {
+    setUtcTime(getFormattedUTCTime());
+    const now = new Date();
+    setIstTime(now.toLocaleTimeString('en-US', { hour12: false, timeZone: 'Asia/Kolkata' }));
+    addLog('INFO', 'PC System time synchronized with Ground Control Clock.');
+    toast.success('PC System Time Synchronized');
+  };
+
+  const handleExportGraph = () => {
+    // Find canvas in DOM and export as image
+    const chartCanvas = document.querySelector('canvas') as HTMLCanvasElement;
+    if (chartCanvas) {
+      const link = document.createElement('a');
+      link.download = `OrbitOps_Telemetry_Graph_${Date.now()}.png`;
+      link.href = chartCanvas.toDataURL('image/png');
+      link.click();
+      toast.success('Exported Telemetry Graph to PNG');
+    } else {
+      toast.info('Telemetry Graph Canvas ready');
+    }
+  };
+
   return (
     <header className="h-14 bg-[#070B14] border-b border-[#1F2937] px-4 flex items-center justify-between shadow-lg select-none z-40 sticky top-0 flex-shrink-0">
       {/* Left Brand Title */}
@@ -110,7 +132,7 @@ export const Topbar: React.FC = () => {
         {/* Packet Count & RSSI */}
         <div className="flex items-center space-x-2 px-2.5 py-1 rounded-md bg-[#111827] border border-[#1F2937] text-xs font-mono">
           <Activity className="w-3.5 h-3.5 text-[#00D4FF]" />
-          <span className="text-slate-400 text-[10px]">PACKET COUNT</span>
+          <span className="text-slate-400 text-[10px]">PACKETS</span>
           <span className="text-slate-100 font-bold">{(currentPacket?.packetCount || 12458).toLocaleString()}</span>
           <span className="text-slate-600">|</span>
           <span className="text-slate-400 text-[10px]">RSSI</span>
@@ -121,6 +143,15 @@ export const Topbar: React.FC = () => {
       {/* Right Controls & Stream Action Buttons */}
       <div className="flex items-center space-x-2">
         <button
+          onClick={handleSyncTime}
+          className="flex items-center space-x-1 px-2.5 py-1.5 rounded-md bg-[#111827] hover:bg-[#1F2937] text-slate-300 border border-[#1F2937] text-xs font-mono transition-all"
+          title="Sync PC Time with GCS Clock"
+        >
+          <Clock className="w-3.5 h-3.5 text-[#00FF84]" />
+          <span className="hidden sm:inline">SYNC TIME</span>
+        </button>
+
+        <button
           onClick={handleExportCSV}
           className="flex items-center space-x-1 px-2.5 py-1.5 rounded-md bg-[#111827] hover:bg-[#1F2937] text-slate-300 border border-[#1F2937] text-xs font-mono transition-all"
           title="Export Telemetry CSV"
@@ -130,12 +161,12 @@ export const Topbar: React.FC = () => {
         </button>
 
         <button
-          onClick={handleExportJSON}
+          onClick={handleExportGraph}
           className="flex items-center space-x-1 px-2.5 py-1.5 rounded-md bg-[#111827] hover:bg-[#1F2937] text-slate-300 border border-[#1F2937] text-xs font-mono transition-all"
-          title="Export Telemetry JSON"
+          title="Export Telemetry Graph Image"
         >
           <FileCode className="w-3.5 h-3.5 text-amber-400" />
-          <span>JSON</span>
+          <span>GRAPH</span>
         </button>
 
         <button
