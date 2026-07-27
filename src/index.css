@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-main: #0A0F1A;
+    --card-bg: #111827;
+    --border-color: #1F2937;
+    --accent: #00D4FF;
+    --success: #00FF84;
+    --warning: #FACC15;
+    --danger: #EF4444;
+  }
+  
+  html, body, #root {
+    font-family: 'Space Grotesk', sans-serif;
+    background-color: var(--bg-main);
+    color: #F8FAFC;
+    min-height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}
+
+/* Custom Scrollbars (Webkit & Firefox/Standard) */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #1F2937 #0A0F1A;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0A0F1A;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1F2937;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00D4FF;
+}
+
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #00D4FF #0A0F1A;
+}
+
+
+/* Custom Leaflet Map Dark Styling */
+.leaflet-container {
+  background-color: #0A0F1A !important;
+  font-family: 'Rajdhani', 'Space Grotesk', sans-serif !important;
+}
+
+.dark-tiles .leaflet-tile {
+  filter: brightness(0.95) contrast(1.1);
+}
+
+.leaflet-popup-content-wrapper {
+  background-color: #111827 !important;
+  color: #F8FAFC !important;
+  border: 1px solid #1F2937 !important;
+  border-radius: 6px !important;
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.2) !important;
+}
+
+.leaflet-popup-tip {
+  background-color: #111827 !important;
+}
+
+/* Chart Canvas Responsive container */
+.chart-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Pulsing GIS Marker Animation */
+@keyframes mapPulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(0, 212, 255, 0.7);
+  }
+  70% {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 12px rgba(0, 212, 255, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(0, 212, 255, 0);
+  }
+}
+
+.pulsing-sat-marker {
+  animation: mapPulse 1.8s infinite;
+  border-radius: 50%;
+}

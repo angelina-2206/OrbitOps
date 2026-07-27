@@ -1,0 +1,86 @@
+*{
+
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+
+}
+
+body{
+
+    background: #0a0f1a;
+    color:white;
+
+    font-family:'Inter', sans-serif;
+
+}
+
+.topbar{
+    height:80px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 40px;
+    background: #111827;
+    border-bottom:1px solid #222;
+}
+
+.logo h2{
+
+    font-family:'Rajdhani', 'Space Grotesk', sans-serif;
+    letter-spacing:2px;
+    color:#00D4FF;
+
+}
+
+.logo span{
+
+    font-size:13px;
+    color:#B0BEC5;
+
+}
+
+.mission-status{
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+}
+
+.status-indicator{
+
+    width:15px;
+    height:15px;
+    border-radius:50%;
+    background:#00FF6A;
+    box-shadow:0 0 10px #00FF6A;
+
+}
+
+.dashboard{
+
+    padding:20px;
+    display:grid;
+    gap:20px;
+    grid-template-columns:1fr 2fr 1.2fr;
+    grid-template-rows:350px 320px;
+
+}
+
+.dashboard section{
+
+    background:#111827;
+    border-radius:12px;
+    border:1px solid #1E293B;
+    padding:20px;
+
+}
+
+.dashboard h3{
+
+    color:#00D4FF;
+    margin-bottom:20px;
+    font-family:'Rajdhani', 'Space Grotesk', sans-serif;
+
+}
