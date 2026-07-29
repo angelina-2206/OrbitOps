@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { OrbitOpsLogo } from '../Branding/OrbitOpsLogo';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTelemetryStore } from '../../store/useTelemetryStore';
 import {
   Rocket,
   ShieldCheck,
@@ -21,7 +22,8 @@ import {
   Radio,
   Sliders,
   FileSpreadsheet,
-  Download
+  Download,
+  BookOpen
 } from 'lucide-react';
 
 interface MissionBootScreenProps {
@@ -29,6 +31,7 @@ interface MissionBootScreenProps {
 }
 
 export const MissionBootScreen: React.FC<MissionBootScreenProps> = ({ onComplete }) => {
+  const { setShowDocCenter } = useTelemetryStore();
   const [bootSequenceComplete, setBootSequenceComplete] = useState<boolean>(false);
   const [bootStep, setBootStep] = useState<number>(0);
   const [isLaunching, setIsLaunching] = useState<boolean>(false);
@@ -184,16 +187,20 @@ export const MissionBootScreen: React.FC<MissionBootScreenProps> = ({ onComplete
             </div>
           </div>
 
-          {/* System Badges Strip */}
+          {/* System Badges & Navigation Buttons Strip */}
           <div className="flex items-center space-x-2 font-mono text-[10px]">
+            <button
+              onClick={() => setShowDocCenter(true)}
+              className="px-3 py-1.5 rounded-xl bg-[#00D4FF]/10 hover:bg-[#00D4FF]/20 text-[#00D4FF] border border-[#00D4FF]/40 font-orbitron font-bold flex items-center gap-1.5 transition-all shadow-cyan-glow hover:scale-105"
+            >
+              <BookOpen className="w-3.5 h-3.5" />
+              <span>DOCUMENTATION</span>
+            </button>
             <span className="px-2 py-1 rounded bg-[#0C1220] border border-[#1F2937] text-slate-300 hidden md:flex items-center gap-1">
               <span className="w-1.5 h-1.5 rounded-full bg-[#00FF84]" /> SIMULATION MODE
             </span>
             <span className="px-2 py-1 rounded bg-[#0C1220] border border-[#1F2937] text-slate-300 hidden lg:flex items-center gap-1">
               <Cpu className="w-3 h-3 text-[#00D4FF]" /> WEB SERIAL READY
-            </span>
-            <span className="px-2 py-1 rounded bg-[#0C1220] border border-[#1F2937] text-[#FFC857] hidden lg:flex items-center gap-1 border-[#FFC857]/30">
-              <Box className="w-3 h-3 text-[#FFC857]" /> WEBGL ENABLED
             </span>
             <span className="px-2 py-1 rounded bg-[#0C1220] border border-[#1F2937] text-slate-300 flex items-center gap-1">
               <Clock className="w-3 h-3 text-slate-400" /> {utcTime || '12:00:00 UTC'}
@@ -340,14 +347,23 @@ export const MissionBootScreen: React.FC<MissionBootScreenProps> = ({ onComplete
           {/* Launch CTA Button & Sequence */}
           <div className="pt-2 max-w-md mx-auto space-y-3">
             {!isLaunching ? (
-              <button
-                onClick={handleLaunch}
-                className="w-full py-4 px-6 rounded-xl bg-gradient-to-r from-[#00D4FF]/20 via-[#00FF84]/20 to-[#00D4FF]/20 hover:from-[#00D4FF]/30 hover:to-[#00FF84]/30 text-slate-100 border border-[#00FF84]/50 font-orbitron font-bold text-sm tracking-widest flex items-center justify-center space-x-3 transition-all duration-300 shadow-green-glow group hover:scale-[1.02]"
-              >
-                <Play className="w-5 h-5 fill-current text-[#00FF84] group-hover:translate-x-1 transition-transform" />
-                <span>LAUNCH MISSION CONTROL</span>
-                <ChevronRight className="w-5 h-5 text-[#00D4FF]" />
-              </button>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <button
+                  onClick={handleLaunch}
+                  className="flex-1 py-3.5 px-6 rounded-xl bg-gradient-to-r from-[#00D4FF]/20 via-[#00FF84]/20 to-[#00D4FF]/20 hover:from-[#00D4FF]/30 hover:to-[#00FF84]/30 text-slate-100 border border-[#00FF84]/50 font-orbitron font-bold text-xs md:text-sm tracking-widest flex items-center justify-center space-x-2 transition-all duration-300 shadow-green-glow group hover:scale-[1.02]"
+                >
+                  <Play className="w-4 h-4 fill-current text-[#00FF84] group-hover:translate-x-0.5 transition-transform" />
+                  <span>LAUNCH MISSION CONTROL</span>
+                  <ChevronRight className="w-4 h-4 text-[#00D4FF]" />
+                </button>
+                <button
+                  onClick={() => setShowDocCenter(true)}
+                  className="py-3.5 px-5 rounded-xl bg-[#0C1220] hover:bg-[#1E293B] text-[#00D4FF] border border-[#00D4FF]/40 font-orbitron font-bold text-xs md:text-sm tracking-widest flex items-center justify-center space-x-2 transition-all duration-300 hover:scale-[1.02]"
+                >
+                  <BookOpen className="w-4 h-4 text-[#00D4FF]" />
+                  <span>MISSION BRIEF</span>
+                </button>
+              </div>
             ) : (
               <div className="bg-[#0C1220] border border-[#00D4FF]/40 rounded-xl p-4 space-y-3 font-mono text-xs shadow-cyan-glow animate-fadeIn">
                 <div className="flex items-center justify-between text-[11px]">

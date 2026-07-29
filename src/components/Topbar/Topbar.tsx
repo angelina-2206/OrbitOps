@@ -14,7 +14,8 @@ import {
   Wifi,
   Activity,
   Clock,
-  Rocket
+  Rocket,
+  BookOpen
 } from 'lucide-react';
 import { toast } from 'sonner';
 
@@ -33,7 +34,8 @@ export const Topbar: React.FC = () => {
     resetPackets,
     toggleAudio,
     addLog,
-    setShowLandingScreen
+    setShowLandingScreen,
+    setShowDocCenter
   } = useTelemetryStore();
 
   useEffect(() => {
@@ -171,6 +173,18 @@ export const Topbar: React.FC = () => {
         >
           <FileCode className="w-3.5 h-3.5 text-amber-400" />
           <span>GRAPH</span>
+        </button>
+
+        <button
+          onClick={() => {
+            setShowDocCenter(true);
+            toast.info('Opening Documentation Center');
+          }}
+          className="flex items-center space-x-1 px-2.5 py-1.5 rounded-md bg-[#00D4FF]/10 hover:bg-[#00D4FF]/20 text-[#00D4FF] border border-[#00D4FF]/40 text-xs font-mono font-bold transition-all shadow-cyan-glow"
+          title="Open Official GCS Documentation"
+        >
+          <BookOpen className="w-3.5 h-3.5" />
+          <span className="hidden sm:inline">DOCS</span>
         </button>
 
         <button

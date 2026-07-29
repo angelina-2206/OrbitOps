@@ -9,7 +9,8 @@ import {
   Camera,
   AlertTriangle,
   LineChart,
-  User
+  User,
+  BookOpen
 } from 'lucide-react';
 
 interface LeftSidebarProps {
@@ -20,6 +21,7 @@ interface LeftSidebarProps {
 export const LeftSidebar: React.FC<LeftSidebarProps> = ({ activeTab, onNavigate }) => {
   const navItems = [
     { id: 'dashboard', icon: LayoutGrid, label: 'Full Dashboard' },
+    { id: 'docs', icon: BookOpen, label: 'Documentation Center' },
     { id: 'comms', icon: Wifi, label: 'Comms Transceiver' },
     { id: 'map', icon: MapPin, label: 'GIS GPS Tracking' },
     { id: 'attitude', icon: Box, label: '3D CubeSat Attitude' },

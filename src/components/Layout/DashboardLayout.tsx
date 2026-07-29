@@ -19,7 +19,7 @@ import { telemetrySimulator } from '../../services/telemetrySimulator';
 import { toast } from 'sonner';
 
 export const DashboardLayout: React.FC = () => {
-  const { isStreaming, pushPacket } = useTelemetryStore();
+  const { isStreaming, pushPacket, setShowDocCenter } = useTelemetryStore();
 
   const [activeTab, setActiveTab] = useState<string>('dashboard');
   const [isCommsOpen, setIsCommsOpen] = useState<boolean>(false);
@@ -40,6 +40,12 @@ export const DashboardLayout: React.FC = () => {
 
   const handleNavigate = (id: string) => {
     setActiveTab(id);
+
+    if (id === 'docs') {
+      setShowDocCenter(true);
+      toast.info('Opening Documentation Center');
+      return;
+    }
 
     if (id === 'comms') {
       setIsCommsOpen(true);

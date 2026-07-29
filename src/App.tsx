@@ -1,11 +1,13 @@
 import React from 'react';
 import { DashboardLayout } from './components/Layout/DashboardLayout';
 import { MissionBootScreen } from './components/Landing/MissionBootScreen';
+import { DocumentationCenter } from './components/Documentation/DocumentationCenter';
 import { useTelemetryStore } from './store/useTelemetryStore';
+import { AnimatePresence } from 'framer-motion';
 import { Toaster } from 'sonner';
 
 export const App: React.FC = () => {
-  const { showLandingScreen, setShowLandingScreen } = useTelemetryStore();
+  const { showLandingScreen, setShowLandingScreen, showDocCenter, setShowDocCenter } = useTelemetryStore();
 
   return (
     <>
@@ -14,6 +16,12 @@ export const App: React.FC = () => {
       ) : (
         <DashboardLayout />
       )}
+
+      <AnimatePresence>
+        {showDocCenter && (
+          <DocumentationCenter onClose={() => setShowDocCenter(false)} />
+        )}
+      </AnimatePresence>
 
       <Toaster 
         theme="dark" 
