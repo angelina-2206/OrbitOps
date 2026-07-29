@@ -451,8 +451,13 @@ void sendTelemetryPacket() {
                 {/* Module 1 */}
                 <div className="bg-[#0C1220]/90 border border-[#1F2937] p-5 rounded-2xl space-y-3 hover:border-[#00D4FF]/50 transition-all group">
                   <div className="flex items-center space-x-3 border-b border-[#1F2937]/80 pb-3">
-                    <div className="p-2.5 rounded-xl bg-[#00D4FF]/10 text-[#00D4FF] border border-[#00D4FF]/30">
-                      <Activity className="w-5 h-5" />
+                    <div className="w-10 h-10 rounded-xl bg-[#070B14] border border-[#00D4FF]/40 p-1.5 flex items-center justify-center shadow-cyan-glow flex-shrink-0 relative overflow-hidden group-hover:border-[#00D4FF] transition-colors">
+                      <svg viewBox="0 0 32 32" className="w-6 h-6 text-[#00D4FF]" fill="none" stroke="currentColor" strokeWidth="1.5">
+                        <line x1="2" y1="16" x2="30" y2="16" stroke="currentColor" strokeOpacity="0.2" strokeDasharray="1 1" />
+                        <line x1="16" y1="2" x2="16" y2="30" stroke="currentColor" strokeOpacity="0.2" strokeDasharray="1 1" />
+                        <path d="M 2 16 L 7 16 L 10 7 L 14 25 L 18 11 L 21 19 L 24 16 L 30 16" stroke="#00D4FF" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                        <circle cx="18" cy="11" r="1.8" fill="#00FF84" />
+                      </svg>
                     </div>
                     <div>
                       <h3 className="font-orbitron font-bold text-sm text-slate-100">Telemetry Dashboard</h3>
@@ -467,8 +472,13 @@ void sendTelemetryPacket() {
                 {/* Module 2 */}
                 <div className="bg-[#0C1220]/90 border border-[#1F2937] p-5 rounded-2xl space-y-3 hover:border-[#00FF84]/50 transition-all group">
                   <div className="flex items-center space-x-3 border-b border-[#1F2937]/80 pb-3">
-                    <div className="p-2.5 rounded-xl bg-[#00FF84]/10 text-[#00FF84] border border-[#00FF84]/30">
-                      <LineChart className="w-5 h-5" />
+                    <div className="w-10 h-10 rounded-xl bg-[#070B14] border border-[#00FF84]/40 p-1.5 flex items-center justify-center shadow-green-glow flex-shrink-0 relative overflow-hidden group-hover:border-[#00FF84] transition-colors">
+                      <svg viewBox="0 0 32 32" className="w-6 h-6 text-[#00FF84]" fill="none" stroke="currentColor" strokeWidth="1.5">
+                        <path d="M 4 4 L 4 28 L 28 28" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                        <path d="M 4 24 Q 10 6 16 16 T 28 8" stroke="#00FF84" strokeWidth="1.8" strokeLinecap="round" fill="none" />
+                        <path d="M 4 20 Q 12 26 18 12 T 28 18" stroke="#00D4FF" strokeWidth="1.2" strokeDasharray="2 2" strokeLinecap="round" fill="none" />
+                        <circle cx="16" cy="16" r="1.8" fill="#00FF84" />
+                      </svg>
                     </div>
                     <div>
                       <h3 className="font-orbitron font-bold text-sm text-slate-100">Real-Time Graphs</h3>
@@ -483,8 +493,15 @@ void sendTelemetryPacket() {
                 {/* Module 3 */}
                 <div className="bg-[#0C1220]/90 border border-[#1F2937] p-5 rounded-2xl space-y-3 hover:border-[#FFC857]/50 transition-all group">
                   <div className="flex items-center space-x-3 border-b border-[#1F2937]/80 pb-3">
-                    <div className="p-2.5 rounded-xl bg-[#FFC857]/10 text-[#FFC857] border border-[#FFC857]/30">
-                      <MapPin className="w-5 h-5" />
+                    <div className="w-10 h-10 rounded-xl bg-[#070B14] border border-[#FFC857]/40 p-1.5 flex items-center justify-center shadow-amber-glow flex-shrink-0 relative overflow-hidden group-hover:border-[#FFC857] transition-colors">
+                      <svg viewBox="0 0 32 32" className="w-6 h-6 text-[#FFC857]" fill="none" stroke="currentColor" strokeWidth="1.5">
+                        <circle cx="16" cy="16" r="13" stroke="currentColor" strokeWidth="1.2" strokeOpacity="0.4" />
+                        <circle cx="16" cy="16" r="7" stroke="currentColor" strokeWidth="1" strokeDasharray="2 2" />
+                        <line x1="16" y1="2" x2="16" y2="30" stroke="currentColor" strokeWidth="1" strokeOpacity="0.6" />
+                        <line x1="2" y1="16" x2="30" y2="16" stroke="currentColor" strokeWidth="1" strokeOpacity="0.6" />
+                        <path d="M 8 22 L 16 16 L 24 10" stroke="#00FF84" strokeWidth="1.5" strokeDasharray="2 1" />
+                        <circle cx="16" cy="16" r="2.5" fill="#FFC857" stroke="#070B14" strokeWidth="1" />
+                      </svg>
                     </div>
                     <div>
                       <h3 className="font-orbitron font-bold text-sm text-slate-100">GIS Tracking</h3>
@@ -499,8 +516,15 @@ void sendTelemetryPacket() {
                 {/* Module 4 */}
                 <div className="bg-[#0C1220]/90 border border-[#1F2937] p-5 rounded-2xl space-y-3 hover:border-purple-500/50 transition-all group">
                   <div className="flex items-center space-x-3 border-b border-[#1F2937]/80 pb-3">
-                    <div className="p-2.5 rounded-xl bg-purple-500/10 text-purple-400 border border-purple-500/30">
-                      <Box className="w-5 h-5" />
+                    <div className="w-10 h-10 rounded-xl bg-[#070B14] border border-purple-500/40 p-1.5 flex items-center justify-center shadow-purple-glow flex-shrink-0 relative overflow-hidden group-hover:border-purple-400 transition-colors">
+                      <svg viewBox="0 0 32 32" className="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" strokeWidth="1.5">
+                        <path d="M 16 4 L 27 10 L 27 22 L 16 28 L 5 22 L 5 10 Z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
+                        <line x1="16" y1="4" x2="16" y2="16" stroke="currentColor" strokeWidth="1.2" />
+                        <line x1="5" y1="10" x2="16" y2="16" stroke="currentColor" strokeWidth="1.2" />
+                        <line x1="27" y1="10" x2="16" y2="16" stroke="currentColor" strokeWidth="1.2" />
+                        <ellipse cx="16" cy="16" rx="11" ry="5" stroke="#00D4FF" strokeWidth="1" strokeDasharray="2 1" transform="rotate(-20 16 16)" />
+                        <circle cx="24" cy="14" r="1.5" fill="#00FF84" />
+                      </svg>
                     </div>
                     <div>
                       <h3 className="font-orbitron font-bold text-sm text-slate-100">3D CubeSat Attitude</h3>
@@ -515,8 +539,16 @@ void sendTelemetryPacket() {
                 {/* Module 5 */}
                 <div className="bg-[#0C1220]/90 border border-[#1F2937] p-5 rounded-2xl space-y-3 hover:border-red-500/50 transition-all group">
                   <div className="flex items-center space-x-3 border-b border-[#1F2937]/80 pb-3">
-                    <div className="p-2.5 rounded-xl bg-red-500/10 text-red-400 border border-red-500/30">
-                      <Sliders className="w-5 h-5" />
+                    <div className="w-10 h-10 rounded-xl bg-[#070B14] border border-red-500/40 p-1.5 flex items-center justify-center shadow-red-glow flex-shrink-0 relative overflow-hidden group-hover:border-red-400 transition-colors">
+                      <svg viewBox="0 0 32 32" className="w-6 h-6 text-red-400" fill="none" stroke="currentColor" strokeWidth="1.5">
+                        <rect x="4" y="6" width="24" height="20" rx="3" stroke="currentColor" strokeWidth="1.5" fill="#070B14" />
+                        <line x1="4" y1="14" x2="28" y2="14" stroke="currentColor" strokeOpacity="0.4" />
+                        <circle cx="10" cy="10" r="2" fill="#00FF84" />
+                        <circle cx="16" cy="10" r="2" fill="#00D4FF" />
+                        <circle cx="22" cy="10" r="2" fill="#EF4444" />
+                        <line x1="8" y1="20" x2="24" y2="20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                        <rect x="15" y="17" width="5" height="6" rx="1" fill="#EF4444" stroke="#ffffff" strokeWidth="0.8" />
+                      </svg>
                     </div>
                     <div>
                       <h3 className="font-orbitron font-bold text-sm text-slate-100">Mission Control</h3>
@@ -531,8 +563,16 @@ void sendTelemetryPacket() {
                 {/* Module 6 */}
                 <div className="bg-[#0C1220]/90 border border-[#1F2937] p-5 rounded-2xl space-y-3 hover:border-[#00D4FF]/50 transition-all group">
                   <div className="flex items-center space-x-3 border-b border-[#1F2937]/80 pb-3">
-                    <div className="p-2.5 rounded-xl bg-[#00D4FF]/10 text-[#00D4FF] border border-[#00D4FF]/30">
-                      <Camera className="w-5 h-5" />
+                    <div className="w-10 h-10 rounded-xl bg-[#070B14] border border-[#00D4FF]/40 p-1.5 flex items-center justify-center shadow-cyan-glow flex-shrink-0 relative overflow-hidden group-hover:border-[#00D4FF] transition-colors">
+                      <svg viewBox="0 0 32 32" className="w-6 h-6 text-[#00D4FF]" fill="none" stroke="currentColor" strokeWidth="1.5">
+                        <path d="M 4 9 L 4 4 L 9 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                        <path d="M 23 4 L 28 4 L 28 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                        <path d="M 4 23 L 4 28 L 9 28" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                        <path d="M 23 28 L 28 28 L 28 23" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                        <circle cx="16" cy="16" r="7" stroke="#00D4FF" strokeWidth="1.5" />
+                        <circle cx="16" cy="16" r="3" fill="#00D4FF" fillOpacity="0.3" stroke="#00FF84" strokeWidth="1" />
+                        <circle cx="23" cy="9" r="1.5" fill="#EF4444" />
+                      </svg>
                     </div>
                     <div>
                       <h3 className="font-orbitron font-bold text-sm text-slate-100">Optical Feed</h3>
@@ -547,8 +587,14 @@ void sendTelemetryPacket() {
                 {/* Module 7 */}
                 <div className="bg-[#0C1220]/90 border border-[#1F2937] p-5 rounded-2xl space-y-3 hover:border-[#00FF84]/50 transition-all group md:col-span-2">
                   <div className="flex items-center space-x-3 border-b border-[#1F2937]/80 pb-3">
-                    <div className="p-2.5 rounded-xl bg-[#00FF84]/10 text-[#00FF84] border border-[#00FF84]/30">
-                      <Terminal className="w-5 h-5" />
+                    <div className="w-10 h-10 rounded-xl bg-[#070B14] border border-[#00FF84]/40 p-1.5 flex items-center justify-center shadow-green-glow flex-shrink-0 relative overflow-hidden group-hover:border-[#00FF84] transition-colors">
+                      <svg viewBox="0 0 32 32" className="w-6 h-6 text-[#00FF84]" fill="none" stroke="currentColor" strokeWidth="1.5">
+                        <rect x="4" y="5" width="24" height="22" rx="3" stroke="currentColor" strokeWidth="1.5" fill="#070B14" />
+                        <path d="M 8 12 L 14 12 M 8 16 L 20 16 M 8 20 L 16 20" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+                        <circle cx="20" cy="12" r="1.5" fill="#00FF84" />
+                        <circle cx="23" cy="16" r="1.5" fill="#00FF84" />
+                        <circle cx="21" cy="20" r="1.5" fill="#00D4FF" />
+                      </svg>
                     </div>
                     <div>
                       <h3 className="font-orbitron font-bold text-sm text-slate-100">Diagnostics System</h3>
