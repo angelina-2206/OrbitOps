@@ -15,7 +15,8 @@ import {
   Activity,
   Clock,
   Rocket,
-  BookOpen
+  BookOpen,
+  FileText
 } from 'lucide-react';
 import { toast } from 'sonner';
 
@@ -178,16 +179,13 @@ export const Topbar: React.FC = () => {
         <button
           onClick={() => {
             setShowDocCenter(true);
-            toast.info('Opening Mission Briefing & Documentation');
+            toast.info('Opening Mission Brief');
           }}
           className="flex items-center space-x-1.5 px-2.5 py-1.5 rounded-md bg-[#00D4FF]/10 hover:bg-[#00D4FF]/20 text-[#00D4FF] border border-[#00D4FF]/40 text-xs font-mono font-bold transition-all shadow-cyan-glow group"
-          title="Open Official GCS Mission Briefing & Documentation"
+          title="Open Official GCS Mission Brief"
         >
-          <BookOpen className="w-3.5 h-3.5" />
-          <span className="hidden sm:inline">MISSION BRIEFING & DOCS</span>
-          <span className="hidden md:inline-block px-1 py-0.2 rounded bg-[#00FF84]/20 text-[#00FF84] border border-[#00FF84]/30 text-[9px]">
-            v2.0
-          </span>
+          <FileText className="w-3.5 h-3.5" />
+          <span className="hidden sm:inline">MISSION BRIEF</span>
         </button>
 
         <button

@@ -23,7 +23,8 @@ import {
   Sliders,
   FileSpreadsheet,
   Download,
-  BookOpen
+  BookOpen,
+  FileText
 } from 'lucide-react';
 
 interface MissionBootScreenProps {
@@ -191,13 +192,10 @@ export const MissionBootScreen: React.FC<MissionBootScreenProps> = ({ onComplete
           <div className="flex items-center space-x-2 font-mono text-[10px]">
             <button
               onClick={() => setShowDocCenter(true)}
-              className="px-3.5 py-1.5 rounded-xl bg-[#00D4FF]/10 hover:bg-[#00D4FF]/20 text-[#00D4FF] border border-[#00D4FF]/40 font-orbitron font-bold flex items-center gap-2 transition-all shadow-cyan-glow hover:scale-105 group"
+              className="px-3.5 py-1.5 rounded-xl bg-[#00D4FF]/10 hover:bg-[#00D4FF]/20 text-[#00D4FF] border border-[#00D4FF]/40 font-orbitron font-bold flex items-center gap-1.5 transition-all shadow-cyan-glow hover:scale-105 group"
             >
-              <BookOpen className="w-3.5 h-3.5 text-[#00D4FF]" />
-              <span>MISSION BRIEFING & DOCS</span>
-              <span className="px-1.5 py-0.5 rounded-full bg-[#00FF84]/20 text-[#00FF84] border border-[#00FF84]/40 text-[9px] font-mono font-bold tracking-wider uppercase">
-                v2.0
-              </span>
+              <FileText className="w-3.5 h-3.5 text-[#00D4FF]" />
+              <span>MISSION BRIEF</span>
             </button>
             <span className="px-2 py-1 rounded bg-[#0C1220] border border-[#1F2937] text-slate-300 hidden md:flex items-center gap-1">
               <span className="w-1.5 h-1.5 rounded-full bg-[#00FF84]" /> SIMULATION MODE
@@ -347,27 +345,25 @@ export const MissionBootScreen: React.FC<MissionBootScreenProps> = ({ onComplete
             </div>
           </div>
 
-          {/* Launch CTA Button & Sequence */}
-          <div className="pt-2 max-w-md mx-auto space-y-3">
+          {/* Launch & Mission Brief CTA Buttons */}
+          <div className="pt-2 max-w-xl mx-auto space-y-3">
             {!isLaunching ? (
-              <div className="flex flex-col sm:flex-row gap-3">
+              <div className="flex flex-col sm:flex-row gap-3 items-center justify-center">
                 <button
                   onClick={handleLaunch}
-                  className="flex-1 py-3.5 px-6 rounded-xl bg-gradient-to-r from-[#00D4FF]/20 via-[#00FF84]/20 to-[#00D4FF]/20 hover:from-[#00D4FF]/30 hover:to-[#00FF84]/30 text-slate-100 border border-[#00FF84]/50 font-orbitron font-bold text-xs md:text-sm tracking-widest flex items-center justify-center space-x-2 transition-all duration-300 shadow-green-glow group hover:scale-[1.02]"
+                  className="flex-1 w-full py-4 px-6 rounded-xl bg-gradient-to-r from-[#00FF84]/15 via-[#00FF84]/25 to-[#00D4FF]/15 hover:from-[#00FF84]/25 hover:to-[#00D4FF]/25 text-slate-100 border border-[#00FF84]/60 font-orbitron font-bold text-xs md:text-sm tracking-widest flex items-center justify-center space-x-2.5 transition-all duration-300 shadow-green-glow group hover:scale-[1.02]"
                 >
-                  <Play className="w-4 h-4 fill-current text-[#00FF84] group-hover:translate-x-0.5 transition-transform" />
-                  <span>LAUNCH MISSION CONTROL</span>
-                  <ChevronRight className="w-4 h-4 text-[#00D4FF]" />
+                  <Play className="w-4 h-4 fill-current text-[#00FF84] group-hover:translate-x-0.5 transition-transform flex-shrink-0" />
+                  <span className="whitespace-nowrap">LAUNCH MISSION CONTROL</span>
+                  <ChevronRight className="w-4 h-4 text-[#00FF84] group-hover:translate-x-0.5 transition-transform flex-shrink-0" />
                 </button>
                 <button
                   onClick={() => setShowDocCenter(true)}
-                  className="py-3.5 px-5 rounded-xl bg-[#0C1220] hover:bg-[#1E293B] text-[#00D4FF] border border-[#00D4FF]/40 font-orbitron font-bold text-xs md:text-sm tracking-widest flex items-center justify-center space-x-2 transition-all duration-300 hover:scale-[1.02] shadow-md group"
+                  className="flex-1 w-full py-4 px-6 rounded-xl bg-gradient-to-r from-[#00D4FF]/15 via-[#00D4FF]/25 to-[#3B82F6]/15 hover:from-[#00D4FF]/25 hover:to-[#3B82F6]/25 text-slate-100 border border-[#00D4FF]/60 font-orbitron font-bold text-xs md:text-sm tracking-widest flex items-center justify-center space-x-2.5 transition-all duration-300 shadow-cyan-glow group hover:scale-[1.02]"
                 >
-                  <BookOpen className="w-4 h-4 text-[#00D4FF] group-hover:scale-110 transition-transform" />
-                  <span>MISSION BRIEFING & DOCS</span>
-                  <span className="px-1.5 py-0.5 rounded-md bg-[#00D4FF]/20 text-[#00D4FF] border border-[#00D4FF]/40 text-[9px] font-mono font-bold">
-                    SPEC
-                  </span>
+                  <FileText className="w-4 h-4 text-[#00D4FF] group-hover:translate-x-0.5 transition-transform flex-shrink-0" />
+                  <span className="whitespace-nowrap">MISSION BRIEF</span>
+                  <ChevronRight className="w-4 h-4 text-[#00D4FF] group-hover:translate-x-0.5 transition-transform flex-shrink-0" />
                 </button>
               </div>
             ) : (
