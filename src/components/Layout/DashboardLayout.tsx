@@ -59,6 +59,11 @@ export const DashboardLayout: React.FC = () => {
       return;
     }
 
+    if (id === 'settings') {
+      toast.info('System Settings: Hardware serial @ 115200 baud | Audio alarm enabled');
+      return;
+    }
+
     if (id === 'dashboard') {
       const scrollArea = document.getElementById('dashboard-scroll-area');
       if (scrollArea) {

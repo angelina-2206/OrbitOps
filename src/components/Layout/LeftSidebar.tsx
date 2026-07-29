@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { OrbitOpsLogo } from '../Branding/OrbitOpsLogo';
-import { ChevronRight, ChevronLeft, PanelLeftClose, PanelLeftOpen } from 'lucide-react';
+import { PanelLeftClose, PanelLeftOpen } from 'lucide-react';
 
 interface LeftSidebarProps {
   activeTab: string;
@@ -127,6 +127,17 @@ export const LeftSidebar: React.FC<LeftSidebarProps> = ({
         </svg>
       )
     },
+    {
+      id: 'settings',
+      label: 'System Settings',
+      subtitle: 'GCS Config & Audio',
+      svg: (
+        <svg viewBox="0 0 24 24" className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="1.5">
+          <circle cx="12" cy="12" r="3" strokeWidth="1.5" />
+          <path d="M 19.4 15 a 1.65 1.65 0 0 0 .33 1.82 l .06 .06 a 2 2 0 0 1 0 2.83 a 2 2 0 0 1 -2.83 0 l -.06 -.06 a 1.65 1.65 0 0 0 -1.82 -.33 a 1.65 1.65 0 0 0 -1 1.51 V 21 a 2 2 0 0 1 -2 2 a 2 2 0 0 1 -2 -2 v -.09 A 1.65 1.65 0 0 0 9 19.4 a 1.65 1.65 0 0 0 -1.82 .33 l -.06 .06 a 2 2 0 0 1 -2.83 0 a 2 2 0 0 1 0 -2.83 l .06 -.06 a 1.65 1.65 0 0 0 .33 -1.82 a 1.65 1.65 0 0 0 -1.51 -1 H 3 a 2 2 0 0 1 -2 -2 a 2 2 0 0 1 2 -2 h .09 A 1.65 1.65 0 0 0 4.6 9 a 1.65 1.65 0 0 0 -.33 -1.82 l -.06 -.06 a 2 2 0 0 1 0 -2.83 a 2 2 0 0 1 2.83 0 l .06 .06 a 1.65 1.65 0 0 0 1.82 .33 H 9 a 1.65 1.65 0 0 0 1 -1.51 V 3 a 2 2 0 0 1 2 -2 a 2 2 0 0 1 2 2 v .09 a 1.65 1.65 0 0 0 1 1.51 a 1.65 1.65 0 0 0 1.82 -.33 l .06 -.06 a 2 2 0 0 1 2.83 0 a 2 2 0 0 1 0 2.83 l -.06 .06 a 1.65 1.65 0 0 0 -.33 1.82 V 9 a 1.65 1.65 0 0 0 1.51 1 H 21 a 2 2 0 0 1 2 2 a 2 2 0 0 1 -2 2 h -.09 a 1.65 1.65 0 0 0 -1.51 1 Z" strokeWidth="1.5" />
+        </svg>
+      )
+    },
   ];
 
   return (
@@ -136,7 +147,7 @@ export const LeftSidebar: React.FC<LeftSidebarProps> = ({
       }`}
     >
       {/* Top Header & Collapse Toggle Area */}
-      <div className={`flex items-center mb-5 ${isCollapsed ? 'flex-col space-y-2.5 items-center' : 'justify-between'}`}>
+      <div className={`flex items-center mb-4 ${isCollapsed ? 'flex-col space-y-2.5 items-center' : 'justify-between'}`}>
         <div
           onClick={() => onNavigate('dashboard')}
           title="OrbitOps GCS Home"
