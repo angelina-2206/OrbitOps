@@ -232,7 +232,6 @@ void sendTelemetryPacket() {
           </div>
 
           {sections.map((sec) => {
-            const Icon = sec.icon;
             const isActive = activeSection === sec.id;
             return (
               <button
@@ -244,11 +243,10 @@ void sendTelemetryPacket() {
                     : 'text-slate-400 hover:text-slate-200 hover:bg-[#0C1220]'
                 }`}
               >
-                <div className="flex items-center space-x-2.5 min-w-0">
+                <div className="flex items-center space-x-3 min-w-0">
                   <span className={`text-[10px] font-bold ${isActive ? 'text-[#00D4FF]' : 'text-slate-500'}`}>
                     {sec.num}
                   </span>
-                  <Icon className={`w-4 h-4 flex-shrink-0 ${isActive ? 'text-[#00D4FF]' : 'text-slate-400 group-hover:text-slate-200'}`} />
                   <span className="truncate">{sec.title}</span>
                 </div>
                 {isActive && <ChevronRight className="w-3.5 h-3.5 text-[#00D4FF] flex-shrink-0" />}
