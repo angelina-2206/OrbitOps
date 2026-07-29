@@ -5,14 +5,12 @@ import { OrbitOpsLogo } from '../Branding/OrbitOpsLogo';
 import {
   Play,
   Square,
-  RotateCcw,
   FileSpreadsheet,
   FileCode,
   Settings,
   Wifi,
   Activity,
   Clock,
-  Rocket,
   FileText,
   Volume2,
   VolumeX
@@ -30,10 +28,8 @@ export const Topbar: React.FC = () => {
     audioMuted,
     startTelemetry,
     stopTelemetry,
-    resetPackets,
     toggleAudio,
     addLog,
-    setShowLandingScreen,
     setShowDocCenter
   } = useTelemetryStore();
 
@@ -88,9 +84,9 @@ export const Topbar: React.FC = () => {
 
   return (
     <header className="h-14 bg-[#070B14] border-b border-[#1F2937] px-3 md:px-4 flex items-center justify-between shadow-lg select-none z-40 sticky top-0 flex-shrink-0">
-      {/* Left Brand Title with OrbitOps Logo */}
+      {/* Left Brand Title */}
       <div className="flex items-center space-x-2.5 flex-shrink-0">
-        <OrbitOpsLogo size={32} />
+        <OrbitOpsLogo size={28} />
         <div>
           <div className="flex items-center space-x-1.5">
             <h1 className="font-orbitron font-bold text-sm text-slate-100 tracking-wider flex items-center gap-1.5 leading-none">
@@ -134,7 +130,7 @@ export const Topbar: React.FC = () => {
           </span>
         </div>
 
-        {/* UTC Time & IST Time Chip - Perfectly Aligned Single Line */}
+        {/* UTC Time & IST Time Chip */}
         <div className="h-8 px-2.5 rounded-lg bg-[#111827] border border-[#1F2937] text-xs font-mono inline-flex items-center space-x-2 whitespace-nowrap flex-shrink-0">
           <Clock className="w-3.5 h-3.5 text-[#00D4FF] flex-shrink-0" />
           <span className="text-slate-200 font-bold text-[11px] leading-none tracking-wider">{utcTime}</span>
@@ -212,25 +208,6 @@ export const Topbar: React.FC = () => {
           <span className="hidden lg:inline text-[11px] font-bold">
             {audioMuted ? 'MUTED' : 'AUDIO'}
           </span>
-        </button>
-
-        <button
-          onClick={resetPackets}
-          className="h-8 w-8 rounded-lg bg-[#111827] hover:bg-[#1F2937] text-slate-300 border border-[#1F2937] transition-all inline-flex items-center justify-center flex-shrink-0"
-          title="Reset Telemetry Packets"
-        >
-          <RotateCcw className="w-4 h-4 text-slate-400 hover:text-slate-200" />
-        </button>
-
-        <button
-          onClick={() => {
-            setShowLandingScreen(true);
-            toast.info('Opening Mission Initialization Screen');
-          }}
-          className="h-8 w-8 rounded-lg bg-[#111827] hover:bg-[#1F2937] text-slate-300 border border-[#1F2937] transition-all inline-flex items-center justify-center flex-shrink-0"
-          title="Re-Initialize Mission Screen"
-        >
-          <Rocket className="w-4 h-4 text-[#00D4FF]" />
         </button>
 
         <button

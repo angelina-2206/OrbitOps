@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { OrbitOpsLogo } from '../Branding/OrbitOpsLogo';
-import { PanelLeftClose, PanelLeftOpen, ChevronRight, ChevronLeft } from 'lucide-react';
+import { ChevronRight, ChevronLeft, PanelLeftClose, PanelLeftOpen } from 'lucide-react';
 
 interface LeftSidebarProps {
   activeTab: string;
@@ -131,40 +131,48 @@ export const LeftSidebar: React.FC<LeftSidebarProps> = ({
 
   return (
     <aside
-      className={`relative bg-[#070B14] border-r border-[#1F2937] flex flex-col py-3 select-none flex-shrink-0 z-30 font-space transition-all duration-300 ease-in-out group ${
-        isCollapsed ? 'w-14 items-center' : 'w-56 items-stretch px-3'
+      className={`relative bg-[#070B14] border-r border-[#1F2937] flex flex-col py-3 select-none flex-shrink-0 z-50 font-space transition-all duration-300 ease-in-out ${
+        isCollapsed ? 'w-14 items-center px-1.5' : 'w-56 items-stretch px-3'
       }`}
     >
-      {/* Hide & Seek Collapse Toggle Button */}
-      <button
-        onClick={toggleCollapse}
-        title={isCollapsed ? 'Expand Navigation Sidebar (Seek)' : 'Collapse Navigation Sidebar (Hide)'}
-        className="absolute -right-3 top-5 w-6 h-6 rounded-full bg-[#111827] border border-[#00D4FF]/50 text-[#00D4FF] flex items-center justify-center shadow-cyan-glow z-40 hover:scale-110 transition-transform"
-      >
-        {isCollapsed ? <ChevronRight className="w-3.5 h-3.5" /> : <ChevronLeft className="w-3.5 h-3.5" />}
-      </button>
+      {/* Top Header & Collapse Toggle Area */}
+      <div className={`flex items-center mb-5 ${isCollapsed ? 'flex-col space-y-2.5 items-center' : 'justify-between'}`}>
+        <div
+          onClick={() => onNavigate('dashboard')}
+          title="OrbitOps GCS Home"
+          className={`flex items-center rounded-xl bg-[#111827] border border-[#00D4FF]/40 text-[#00D4FF] shadow-cyan-glow cursor-pointer hover:scale-[1.02] transition-all ${
+            isCollapsed ? 'w-10 h-10 justify-center' : 'p-2 space-x-2.5 min-w-0'
+          }`}
+        >
+          <OrbitOpsLogo size={24} />
+          {!isCollapsed && (
+            <div className="min-w-0">
+              <h1 className="font-orbitron font-bold text-xs text-slate-100 tracking-wider flex items-center gap-1 leading-none">
+                ORBIT<span className="text-[#00D4FF]">OPS</span>
+              </h1>
+              <p className="text-[8px] text-[#00FF84] font-mono mt-0.5 font-semibold">NAVIGATION BUS</p>
+            </div>
+          )}
+        </div>
 
-      {/* Brand Icon at Top */}
-      <div
-        onClick={() => onNavigate('dashboard')}
-        title="OrbitOps GCS Home"
-        className={`relative flex items-center rounded-xl bg-[#111827] border border-[#00D4FF]/40 text-[#00D4FF] shadow-cyan-glow mb-5 cursor-pointer hover:scale-[1.02] transition-all ${
-          isCollapsed ? 'w-10 h-10 justify-center' : 'p-2.5 space-x-3'
-        }`}
-      >
-        <OrbitOpsLogo size={26} />
-        {!isCollapsed && (
-          <div className="min-w-0">
-            <h1 className="font-orbitron font-bold text-xs text-slate-100 tracking-wider flex items-center gap-1.5 leading-none">
-              ORBIT<span className="text-[#00D4FF]">OPS</span>
-            </h1>
-            <p className="text-[9px] text-[#00FF84] font-mono mt-0.5 font-semibold">NAVIGATION BUS</p>
-          </div>
-        )}
+        {/* High-Visibility Collapse/Expand Arrow Toggle Button */}
+        <button
+          onClick={toggleCollapse}
+          title={isCollapsed ? 'Expand Navigation Sidebar (Seek)' : 'Collapse Navigation Sidebar (Hide)'}
+          className={`rounded-lg bg-[#111827] border border-[#00D4FF]/50 text-[#00D4FF] flex items-center justify-center shadow-cyan-glow hover:bg-[#00D4FF]/20 hover:scale-105 transition-all ${
+            isCollapsed ? 'w-9 h-7' : 'w-8 h-8'
+          }`}
+        >
+          {isCollapsed ? (
+            <PanelLeftOpen className="w-4 h-4 text-[#00D4FF]" />
+          ) : (
+            <PanelLeftClose className="w-4 h-4 text-[#00D4FF]" />
+          )}
+        </button>
       </div>
 
       {/* Navigation Item List */}
-      <div className="flex-1 flex flex-col space-y-2 w-full overflow-y-auto custom-scrollbar">
+      <div className="flex-1 flex flex-col space-y-1.5 w-full overflow-y-auto custom-scrollbar">
         {navItems.map((item) => {
           const isActive = activeTab === item.id;
           return (
@@ -175,7 +183,7 @@ export const LeftSidebar: React.FC<LeftSidebarProps> = ({
               className={`relative rounded-xl transition-all duration-200 flex items-center ${
                 isCollapsed
                   ? 'p-2.5 justify-center'
-                  : 'px-3 py-2.5 space-x-3 justify-start w-full'
+                  : 'px-3 py-2 space-x-3 justify-start w-full'
               } ${
                 isActive
                   ? 'bg-[#00D4FF]/10 text-[#00D4FF] border border-[#00D4FF]/30 shadow-cyan-glow'
@@ -187,7 +195,7 @@ export const LeftSidebar: React.FC<LeftSidebarProps> = ({
               {!isCollapsed && (
                 <div className="min-w-0 text-left">
                   <p className="font-orbitron font-bold text-xs truncate leading-none">{item.label}</p>
-                  <p className="text-[9px] text-slate-500 font-mono truncate mt-1">{item.subtitle}</p>
+                  <p className="text-[9px] text-slate-500 font-mono truncate mt-0.5">{item.subtitle}</p>
                 </div>
               )}
 
@@ -196,7 +204,7 @@ export const LeftSidebar: React.FC<LeftSidebarProps> = ({
                   className={`absolute bg-[#00D4FF] rounded-r-full shadow-cyan-glow ${
                     isCollapsed
                       ? 'left-0 top-1/2 -translate-y-1/2 w-1 h-5'
-                      : 'left-0 top-1/2 -translate-y-1/2 w-1 h-6'
+                      : 'left-0 top-1/2 -translate-y-1/2 w-1 h-5'
                   }`}
                 />
               )}
@@ -210,7 +218,7 @@ export const LeftSidebar: React.FC<LeftSidebarProps> = ({
         onClick={() => onNavigate('user')}
         title="Operator Profile"
         className={`relative rounded-xl transition-all mt-2 flex items-center ${
-          isCollapsed ? 'p-2.5 justify-center' : 'px-3 py-2.5 space-x-3 justify-start w-full'
+          isCollapsed ? 'p-2.5 justify-center' : 'px-3 py-2 space-x-3 justify-start w-full'
         } ${
           activeTab === 'user'
             ? 'bg-[#00D4FF]/10 text-[#00D4FF] border border-[#00D4FF]/30 shadow-cyan-glow'
@@ -225,7 +233,7 @@ export const LeftSidebar: React.FC<LeftSidebarProps> = ({
         {!isCollapsed && (
           <div className="min-w-0 text-left">
             <p className="font-orbitron font-bold text-xs truncate leading-none">Operator Profile</p>
-            <p className="text-[9px] text-slate-500 font-mono truncate mt-1">Ground Station Commander</p>
+            <p className="text-[9px] text-slate-500 font-mono truncate mt-0.5">Ground Station Commander</p>
           </div>
         )}
       </button>
