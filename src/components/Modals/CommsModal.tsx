@@ -38,7 +38,7 @@ export const CommsModal: React.FC<CommsModalProps> = ({ isOpen, onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 backdrop-blur-sm p-4 select-none animate-fadeIn">
+    <div className="fixed inset-0 z-[99999] flex items-center justify-center bg-black/75 backdrop-blur-sm p-4 select-none animate-fadeIn">
       <div className="bg-[#0C1220] border border-[#00D4FF]/40 rounded-xl max-w-lg w-full p-5 shadow-2xl shadow-cyan-glow space-y-4 font-space">
         {/* Header */}
         <div className="flex items-center justify-between pb-3 border-b border-[#1F2937]">

@@ -186,7 +186,7 @@ export const TrackingMap: React.FC = () => {
   };
 
   return (
-    <div className="h-full flex flex-col bg-[#0A0F1A] border-b border-[#1F2937] p-2 select-none relative">
+    <div className="h-full flex flex-col bg-[#0A0F1A] border-b border-[#1F2937] p-2 select-none relative z-0 isolate overflow-hidden">
       {/* Header & Control Actions */}
       <div className="flex flex-wrap items-center justify-between pb-2 border-b border-[#1F2937] mb-1 gap-2">
         <div className="flex items-center space-x-1.5">

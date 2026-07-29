@@ -151,7 +151,7 @@ void sendTelemetryPacket() {
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.98 }}
       transition={{ duration: 0.3 }}
-      className="fixed inset-0 z-50 bg-[#050811] text-slate-100 font-space flex flex-col overflow-hidden select-none"
+      className="fixed inset-0 z-[99999] bg-[#050811] text-slate-100 font-space flex flex-col overflow-hidden select-none"
     >
       {/* Background Starfield Grid */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#0B1E3B] via-[#050811] to-[#020307] opacity-90 z-0 pointer-events-none" />
