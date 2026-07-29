@@ -30,6 +30,27 @@ In satellite and atmospheric payload missions, operators require a single-pane-o
 
 ---
 
+## Reference Launch Mission & Telemetry Data Source
+
+The telemetry parameters and flight dynamics in OrbitOps are based on official **IN-SPACe Cansat India** and **NASA / AAS CanSat Competition** suborbital sounding rocket mission specifications.
+
+### 1. Reference Launch Specifications
+- **Target Mission Profile**: Suborbital Sounding Rocket High-Altitude CanSat Launch
+- **Target Apogee**: `1,050 meters` (`3,445 ft`) MSL
+- **Launch Corridor Coordinates**: Sriharikota / Chennai Aerospace Range (`13.7759° N, 80.29751° E`)
+- **Max Ascent Velocity**: `+28.5 m/s` High-G Boost Phase
+- **Descent Profile**: Two-stage recovery — Freefall / Drogue Stage (`12–15 m/s`) transitioning to Main Parachute Deployment (`4.5 m/s ± 0.5 m/s` stabilized descent).
+
+### 2. Atmospheric Physics Data Model Equations
+- **Barometric Pressure ($P$)**: Derived from the US Standard Atmosphere Barometric Formula:
+  $$P(h) = 1013.25 \times \left(1 - 2.25577 \times 10^{-5} \cdot h\right)^{5.25588} \text{ hPa}$$
+- **Ambient Temperature ($T$)**: Modeled via Standard Tropospheric Lapse Rate ($-6.5^\circ\text{C}$ per $1000\text{m}$ altitude):
+  $$T(h) = T_0 - 0.0065 \cdot h$$
+- **Battery Cell Voltage ($V$)**: 2S LiPo battery discharge curve modeling voltage drop from fully charged `8.40V` down to nominal `6.80V` cutoff.
+- **GPS Constellation Lock**: 12-Satellite NMEA sentence simulation streaming real-time Latitude, Longitude, Altitude, Satellite Count (`8–12 Sats`), and DOP signal quality.
+
+---
+
 ## Tech Stack & Architecture
 
 | Category | Technologies / Libraries | Description |
@@ -98,70 +119,31 @@ OrbitOps/
 │   │   ├── telemetryService.ts    # Central packet router and event dispatcher
 │   │   ├── exportService.ts       # CSV, JSON, and PNG canvas export engine
 │   │   └── audioService.ts        # Oscillator audio alert generator
-│   ├── store/
-│   │   └── useTelemetryStore.ts   # Central Zustand state store for packet streams and logs
-│   ├── types/
-│   │   └── telemetry.ts           # TypeScript interfaces for telemetry packets and diagnostics
-│   ├── utils/
-│   │   └── formatters.ts          # Unit conversion, UTC timestamping, and MET formatters
-│   ├── App.tsx                # Root application container
-│   ├── main.tsx               # Entry point script
-│   └── index.css              # Custom styling, Tailwind directives, and map dark theme overrides
-├── public/                    # Static public resources
-├── package.json               # Dependencies and scripts
-├── tsconfig.json              # TypeScript compilation setup
-└── vite.config.ts             # Vite build configuration
+│   └── store/
+│       └── useTelemetryStore.ts   # Zustand state store and telemetry event bus
+├── index.html
+├── tailwind.config.js
+├── tsconfig.json
+└── vite.config.ts
 ```
 
 ---
 
-## Hardware Serial Connectivity
-
-OrbitOps GCS includes native Web Serial API integration for receiving telemetry directly from physical RF receiver ground station hardware over USB.
-
-### Connecting Hardware Ground Receivers (ESP32 / Arduino / LoRa)
-
-1. Connect your MCU ground node (e.g. ESP32 attached to a LoRa SX1276 or nRF24L01 module) via USB COM port.
-2. Within OrbitOps GCS, click **Connect Hardware**.
-3. Select your serial port and configure the baud rate (default: `115200`).
-4. Incoming serial telemetry strings automatically map into the central Zustand store for real-time visualization.
-
-### Standard Telemetry JSON Packet Schema
-
-```json
-{
-  "timestamp": 1722000000000,
-  "altitude": 450.2,
-  "pressure": 960.5,
-  "temperature": 18.4,
-  "battery": 4.12,
-  "latitude": 28.5721,
-  "longitude": -80.6480,
-  "roll": 2.1,
-  "pitch": -0.8,
-  "yaw": 145.3,
-  "descentRate": 3.2,
-  "systemStatus": "NOMINAL"
-}
-```
-
----
-
-## Local Development & Setup
+## Getting Started & Local Installation
 
 ### Prerequisites
-- **Node.js**: Version `18.0.0` or higher
-- **npm**: Version `9.0.0` or higher
+- **Node.js**: v18.0.0 or higher
+- **npm**: v9.0.0 or higher
 
-### Installation Procedure
+### Installation Steps
 
 1. **Clone the Repository**
    ```bash
-   git clone https://github.com/your-username/OrbitOps.git
+   git clone https://github.com/angelina-2206/OrbitOps.git
    cd OrbitOps
    ```
 
-2. **Install Dependencies**
+2. **Install Project Dependencies**
    ```bash
    npm install
    ```
@@ -170,32 +152,15 @@ OrbitOps GCS includes native Web Serial API integration for receiving telemetry 
    ```bash
    npm run dev
    ```
-   Access the dashboard at `http://localhost:3000` (or designated port).
+   Open your browser and navigate to `http://localhost:5173`.
 
 4. **Build Production Bundle**
    ```bash
    npm run build
    ```
 
-5. **Preview Production Build**
-   ```bash
-   npm run preview
-   ```
-
 ---
 
-## Future Enhancements & Scope
+## License
 
-- **Multi-Satellite Fleet Support**: Toggle between multiple active satellites and ground receivers.
-- **Cloud Telemetry Gateway**: Native WebSockets and MQTT integration for remote cloud ground stations.
-- **Orbital Pass Prediction (SGP4 / TLE)**: TLE satellite tracking and antenna azimuth/elevation auto-pointing.
-- **Doppler Shift Correction**: Real-time frequency shift calculation for receiver hardware.
-
----
-
-## License & Acknowledgements
-
-Developed for research and educational engineering as part of an **Aerospace & Space Technology Internship**.
-
-- Conceptual design inspired by telemetry systems at **NASA**, **SpaceX**, **ISRO**, and **ESA**.
-- Geospatial mapping powered by © [OpenStreetMap](https://www.openstreetmap.org/) contributors and [CartoDB](https://carto.com/).
+This project is licensed under the **MIT License**. Developed for academic, research, and aerospace internship presentation purposes.

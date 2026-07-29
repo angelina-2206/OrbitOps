@@ -909,21 +909,34 @@ void sendTelemetryPacket() {
               </div>
 
               <div className="bg-[#0C1220]/90 border border-[#1F2937] p-6 rounded-2xl space-y-6 font-mono text-xs">
-                {/* Tech Stack Cards Grid */}
+                {/* Tech Stack Cards Grid with Actual Brand Vector SVGs */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {/* Category 1: Frontend */}
+                  {/* Category 1: Frontend Core */}
                   <div className="bg-[#070B14] p-4 rounded-xl border border-[#1F2937] space-y-3">
                     <p className="text-[#00D4FF] font-orbitron font-bold text-xs border-b border-[#1F2937] pb-2">
                       FRONTEND CORE
                     </p>
                     <div className="flex flex-wrap gap-2">
-                      <span className="px-2.5 py-1 rounded bg-[#111827] border border-[#00D4FF]/30 text-[#00D4FF] font-bold">
+                      <span className="px-3 py-1.5 rounded-lg bg-[#111827] border border-[#00D4FF]/40 text-[#00D4FF] font-bold inline-flex items-center gap-2">
+                        <svg viewBox="0 0 24 24" className="w-4 h-4 text-[#61DAFB]" fill="none" stroke="currentColor" strokeWidth="1.5">
+                          <ellipse cx="12" cy="12" rx="9" ry="3.5" transform="rotate(0 12 12)" />
+                          <ellipse cx="12" cy="12" rx="9" ry="3.5" transform="rotate(60 12 12)" />
+                          <ellipse cx="12" cy="12" rx="9" ry="3.5" transform="rotate(120 12 12)" />
+                          <circle cx="12" cy="12" r="1.5" fill="#61DAFB" />
+                        </svg>
                         React 18
                       </span>
-                      <span className="px-2.5 py-1 rounded bg-[#111827] border border-[#1F2937] text-slate-200">
+                      <span className="px-3 py-1.5 rounded-lg bg-[#111827] border border-[#3178C6]/40 text-[#3178C6] font-bold inline-flex items-center gap-2">
+                        <svg viewBox="0 0 24 24" className="w-4 h-4" fill="#3178C6">
+                          <rect width="24" height="24" rx="4" />
+                          <text x="5" y="17" fill="white" fontSize="13" fontWeight="bold" fontFamily="sans-serif">TS</text>
+                        </svg>
                         TypeScript
                       </span>
-                      <span className="px-2.5 py-1 rounded bg-[#111827] border border-[#1F2937] text-slate-200">
+                      <span className="px-3 py-1.5 rounded-lg bg-[#111827] border border-[#06B6D4]/40 text-[#06B6D4] font-bold inline-flex items-center gap-2">
+                        <svg viewBox="0 0 24 24" className="w-4 h-4 fill-[#06B6D4]">
+                          <path d="M 12 4.5 C 7 4.5 3.5 8 5 12 C 3.5 12 2 13.5 2 16 C 2 18.5 4 20 6.5 20 C 11.5 20 15 16.5 13.5 12.5 C 15 12.5 16.5 11 16.5 8.5 C 16.5 6 14.5 4.5 12 4.5 Z" />
+                        </svg>
                         Tailwind CSS
                       </span>
                     </div>
@@ -935,13 +948,26 @@ void sendTelemetryPacket() {
                       VISUALIZATION
                     </p>
                     <div className="flex flex-wrap gap-2">
-                      <span className="px-2.5 py-1 rounded bg-[#111827] border border-[#00FF84]/30 text-[#00FF84] font-bold">
+                      <span className="px-3 py-1.5 rounded-lg bg-[#111827] border border-[#FF6384]/40 text-[#FF6384] font-bold inline-flex items-center gap-2">
+                        <svg viewBox="0 0 24 24" className="w-4 h-4 text-[#FF6384]" fill="none" stroke="currentColor" strokeWidth="2">
+                          <path d="M 3 3 v 18 h 18" strokeWidth="2" strokeLinecap="round" />
+                          <path d="M 7 14 l 4 -5 l 4 3 l 5 -7" stroke="#FF6384" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                          <circle cx="20" cy="5" r="2" fill="#FF6384" />
+                        </svg>
                         Chart.js
                       </span>
-                      <span className="px-2.5 py-1 rounded bg-[#111827] border border-[#1F2937] text-slate-200">
+                      <span className="px-3 py-1.5 rounded-lg bg-[#111827] border border-[#00FF84]/40 text-[#00FF84] font-bold inline-flex items-center gap-2">
+                        <svg viewBox="0 0 24 24" className="w-4 h-4 text-[#00FF84]" fill="none" stroke="currentColor" strokeWidth="1.5">
+                          <path d="M 12 2 L 22 20 L 2 20 Z" strokeWidth="1.5" />
+                          <path d="M 12 2 L 12 20" strokeWidth="1" strokeDasharray="2 1" />
+                          <circle cx="12" cy="12" r="2" fill="#00FF84" />
+                        </svg>
                         Three.js (WebGL)
                       </span>
-                      <span className="px-2.5 py-1 rounded bg-[#111827] border border-[#1F2937] text-slate-200">
+                      <span className="px-3 py-1.5 rounded-lg bg-[#111827] border border-[#19B900]/40 text-[#19B900] font-bold inline-flex items-center gap-2">
+                        <svg viewBox="0 0 24 24" className="w-4 h-4 text-[#19B900]" fill="currentColor">
+                          <path d="M 12 2 C 7 2 3 7 3 13 C 3 19 8 22 12 22 C 16 22 21 19 21 13 C 21 7 17 2 12 2 Z M 12 18 C 10 18 8.5 16.5 8.5 14.5 C 8.5 12.5 10 11 12 11 C 14 11 15.5 12.5 15.5 14.5 C 15.5 16.5 14 18 12 18 Z" />
+                        </svg>
                         Leaflet GIS
                       </span>
                     </div>
@@ -953,7 +979,11 @@ void sendTelemetryPacket() {
                       STATE MANAGEMENT
                     </p>
                     <div className="flex flex-wrap gap-2">
-                      <span className="px-2.5 py-1 rounded bg-[#111827] border border-[#FFC857]/30 text-[#FFC857] font-bold">
+                      <span className="px-3 py-1.5 rounded-lg bg-[#111827] border border-[#FFC857]/40 text-[#FFC857] font-bold inline-flex items-center gap-2">
+                        <svg viewBox="0 0 24 24" className="w-4 h-4 text-[#FFC857]" fill="none" stroke="currentColor" strokeWidth="1.5">
+                          <circle cx="12" cy="12" r="8" strokeWidth="1.5" />
+                          <circle cx="12" cy="12" r="3" fill="#FFC857" />
+                        </svg>
                         Zustand 5
                       </span>
                     </div>
@@ -965,10 +995,16 @@ void sendTelemetryPacket() {
                       ANIMATIONS & UI
                     </p>
                     <div className="flex flex-wrap gap-2">
-                      <span className="px-2.5 py-1 rounded bg-[#111827] border border-purple-500/30 text-purple-400 font-bold">
+                      <span className="px-3 py-1.5 rounded-lg bg-[#111827] border border-purple-500/40 text-purple-400 font-bold inline-flex items-center gap-2">
+                        <svg viewBox="0 0 24 24" className="w-4 h-4 fill-purple-400">
+                          <path d="M 4 0 H 20 V 8 H 12 L 4 0 Z M 4 8 H 12 L 20 16 H 4 V 8 Z M 4 16 L 12 24 V 16 H 4 Z" />
+                        </svg>
                         Framer Motion
                       </span>
-                      <span className="px-2.5 py-1 rounded bg-[#111827] border border-[#1F2937] text-slate-200">
+                      <span className="px-3 py-1.5 rounded-lg bg-[#111827] border border-[#00D4FF]/40 text-[#00D4FF] font-bold inline-flex items-center gap-2">
+                        <svg viewBox="0 0 24 24" className="w-4 h-4 text-[#00D4FF]" fill="none" stroke="currentColor" strokeWidth="1.5">
+                          <path d="M 12 2 L 15 9 L 22 12 L 15 15 L 12 22 L 9 15 L 2 12 L 9 9 Z" fill="#00D4FF20" />
+                        </svg>
                         Lucide Icons
                       </span>
                     </div>
@@ -980,19 +1016,45 @@ void sendTelemetryPacket() {
                       FUTURE HARDWARE & PROTOCOLS
                     </p>
                     <div className="flex flex-wrap gap-2">
-                      <span className="px-2.5 py-1 rounded bg-[#111827] border border-[#00D4FF]/30 text-[#00D4FF] font-bold">
+                      <span className="px-3 py-1.5 rounded-lg bg-[#111827] border border-[#00D4FF]/40 text-[#00D4FF] font-bold inline-flex items-center gap-2">
+                        <svg viewBox="0 0 24 24" className="w-4 h-4 text-[#00D4FF]" fill="none" stroke="currentColor" strokeWidth="1.5">
+                          <rect x="5" y="5" width="14" height="14" rx="2" strokeWidth="1.5" />
+                          <line x1="9" y1="2" x2="9" y2="5" strokeWidth="1.8" />
+                          <line x1="15" y1="2" x2="15" y2="5" strokeWidth="1.8" />
+                          <circle cx="12" cy="12" r="2" fill="#00D4FF" />
+                        </svg>
                         Web Serial API
                       </span>
-                      <span className="px-2.5 py-1 rounded bg-[#111827] border border-[#1F2937] text-slate-200">
-                        ESP32
+                      <span className="px-3 py-1.5 rounded-lg bg-[#111827] border border-amber-500/40 text-amber-400 font-bold inline-flex items-center gap-2">
+                        <svg viewBox="0 0 24 24" className="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" strokeWidth="1.5">
+                          <rect x="4" y="4" width="16" height="16" rx="2" strokeWidth="1.5" />
+                          <rect x="8" y="8" width="8" height="8" fill="currentColor" fillOpacity="0.3" strokeWidth="1.2" />
+                        </svg>
+                        ESP32 MCU
                       </span>
-                      <span className="px-2.5 py-1 rounded bg-[#111827] border border-[#1F2937] text-slate-200">
+                      <span className="px-3 py-1.5 rounded-lg bg-[#111827] border border-[#00979D]/40 text-[#00979D] font-bold inline-flex items-center gap-2">
+                        <svg viewBox="0 0 24 24" className="w-4 h-4 text-[#00979D]" fill="none" stroke="currentColor" strokeWidth="1.8">
+                          <circle cx="8" cy="12" r="5" strokeWidth="1.8" />
+                          <circle cx="16" cy="12" r="5" strokeWidth="1.8" />
+                          <line x1="6" y1="12" x2="10" y2="12" />
+                          <line x1="14" y1="12" x2="18" y2="12" />
+                          <line x1="16" y1="10" x2="16" y2="14" />
+                        </svg>
                         Arduino
                       </span>
-                      <span className="px-2.5 py-1 rounded bg-[#111827] border border-[#1F2937] text-slate-200">
+                      <span className="px-3 py-1.5 rounded-lg bg-[#111827] border border-purple-500/40 text-purple-400 font-bold inline-flex items-center gap-2">
+                        <svg viewBox="0 0 24 24" className="w-4 h-4 text-purple-400" fill="none" stroke="currentColor" strokeWidth="1.5">
+                          <circle cx="12" cy="12" r="8" strokeDasharray="2 2" strokeWidth="1.5" />
+                          <circle cx="12" cy="12" r="3" fill="currentColor" />
+                        </svg>
                         MQTT Protocol
                       </span>
-                      <span className="px-2.5 py-1 rounded bg-[#111827] border border-[#1F2937] text-slate-200">
+                      <span className="px-3 py-1.5 rounded-lg bg-[#111827] border border-[#00FF84]/40 text-[#00FF84] font-bold inline-flex items-center gap-2">
+                        <svg viewBox="0 0 24 24" className="w-4 h-4 text-[#00FF84]" fill="none" stroke="currentColor" strokeWidth="1.5">
+                          <path d="M 7 8 L 3 12 L 7 16" strokeWidth="2" strokeLinecap="round" />
+                          <path d="M 17 8 L 21 12 L 17 16" strokeWidth="2" strokeLinecap="round" />
+                          <line x1="14" y1="4" x2="10" y2="20" strokeWidth="1.8" strokeLinecap="round" />
+                        </svg>
                         WebSockets
                       </span>
                     </div>
@@ -1001,7 +1063,7 @@ void sendTelemetryPacket() {
               </div>
             </section>
 
-            {/* SECTION 7: SIMULATION ENGINE */}
+            {/* SECTION 7: SIMULATION ENGINE & TELEMETRY REFERENCE DATA */}
             <section id="sec-7" className="space-y-6 pt-4 border-t border-[#1F2937]/80">
               <div className="flex items-center space-x-3">
                 <div className="p-2.5 rounded-xl bg-[#00D4FF]/10 text-[#00D4FF] border border-[#00D4FF]/30 font-orbitron font-bold text-sm">
@@ -1009,23 +1071,46 @@ void sendTelemetryPacket() {
                 </div>
                 <div>
                   <h2 className="font-orbitron font-bold text-xl md:text-2xl text-slate-100 tracking-wider">
-                    SIMULATION ENGINE
+                    SIMULATION ENGINE & DATA REFERENCE
                   </h2>
-                  <p className="text-xs text-[#00D4FF] font-mono">Physics Telemetry Generator</p>
+                  <p className="text-xs text-[#00D4FF] font-mono">Reference Mission Launch Specs & Atmospheric Physics Model</p>
                 </div>
               </div>
 
               <div className="bg-[#0C1220]/90 border border-[#1F2937] p-6 rounded-2xl space-y-4 font-mono text-xs text-slate-300 leading-relaxed hover:border-[#00D4FF]/40 transition-colors">
                 <p>
-                  The OrbitOps Simulation Engine generates realistic telemetry parameters within safe aerospace operating ranges to emulate an actual CanSat / CubeSat mission and drive every dashboard component in real time.
+                  The OrbitOps Simulation Engine is modeled on official <strong className="text-[#00D4FF]">IN-SPACe Cansat India</strong> and <strong className="text-[#00FF84]">NASA / AAS CanSat Competition</strong> suborbital rocket flight profiles.
                 </p>
-                <div className="p-4 rounded-xl bg-[#070B14] border border-[#00FF84]/30 space-y-2">
-                  <div className="flex items-center space-x-2 text-[#00FF84] font-bold font-orbitron text-xs">
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                  <div className="p-4 rounded-xl bg-[#070B14] border border-[#00D4FF]/30 space-y-2">
+                    <p className="text-[#00D4FF] font-bold font-orbitron text-xs">REFERENCE LAUNCH PROFILE</p>
+                    <ul className="space-y-1 text-[11px] text-slate-400">
+                      <li>• <strong>Target Apogee:</strong> 1,050 meters (3,445 ft) MSL</li>
+                      <li>• <strong>Launch Pad:</strong> Sriharikota / Chennai Range (13.7759° N, 80.2975° E)</li>
+                      <li>• <strong>Max Ascent Velocity:</strong> +28.5 m/s High-G Boost</li>
+                      <li>• <strong>Dual Descent:</strong> Freefall (14 m/s) → Parachute (4.5 m/s)</li>
+                    </ul>
+                  </div>
+
+                  <div className="p-4 rounded-xl bg-[#070B14] border border-[#00FF84]/30 space-y-2">
+                    <p className="text-[#00FF84] font-bold font-orbitron text-xs">ATMOSPHERIC PHYSICS MODEL</p>
+                    <ul className="space-y-1 text-[11px] text-slate-400">
+                      <li>• <strong>Baro Lapse Rate:</strong> P = 1013.25 * (1 - 2.25577e-5 * h)^5.25588 hPa</li>
+                      <li>• <strong>Temp Gradient:</strong> T = T0 - 0.0065 * h °C (-6.5°C / 1000m)</li>
+                      <li>• <strong>LiPo Cell Curve:</strong> 8.4V (100%) → 6.8V Nominal Cutoff</li>
+                      <li>• <strong>GPS Constellation:</strong> 12 Satellite Lock (NMEA GPGGA/GPRMC)</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="p-4 rounded-xl bg-[#070B14] border border-[#FFC857]/30 space-y-2">
+                  <div className="flex items-center space-x-2 text-[#FFC857] font-bold font-orbitron text-xs">
                     <CheckCircle2 className="w-4 h-4" />
                     <span>HARDWARE DROP-IN REPLACEMENT ARCHITECTURE</span>
                   </div>
                   <p className="text-slate-400 text-[11px]">
-                    The platform architecture is designed such that replacing the simulator with live telemetry from physical hardware (ESP32 via Web Serial API or MQTT) requires <strong>zero changes</strong> to the dashboard user interface or visualization layers.
+                    The telemetry pipeline uses identical packet schemas for both simulated flight data and physical hardware receivers (ESP32 via Web Serial API or MQTT). Replacing the simulator with a live LoRa / RF transceiver link requires zero frontend code modifications.
                   </p>
                 </div>
               </div>
