@@ -263,9 +263,14 @@ export const MissionBootScreen: React.FC<MissionBootScreenProps> = ({ onComplete
             {/* Card 1 */}
             <div className="bg-[#0C1220]/90 border border-[#1F2937] p-4 rounded-2xl space-y-3 hover:border-[#00D4FF]/50 transition-all duration-300 shadow-lg group">
               <div className="flex items-start justify-between gap-2 border-b border-[#1F2937]/80 pb-2.5">
-                <div className="flex items-center space-x-2 min-w-0">
-                  <div className="p-2 rounded-xl bg-[#00D4FF]/10 border border-[#00D4FF]/30 flex-shrink-0 text-[#00D4FF]">
-                    <Rocket className="w-4 h-4" />
+                <div className="flex items-center space-x-2.5 min-w-0">
+                  <div className="w-8 h-8 rounded-lg bg-[#070B14] border border-[#00D4FF]/40 p-1 flex items-center justify-center shadow-cyan-glow flex-shrink-0 text-[#00D4FF]">
+                    <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="1.5">
+                      <path d="M 12 3 L 20 7 L 20 17 L 12 21 L 4 17 L 4 7 Z" strokeWidth="1.5" />
+                      <line x1="12" y1="3" x2="12" y2="12" />
+                      <line x1="4" y1="7" x2="12" y2="12" />
+                      <line x1="20" y1="7" x2="12" y2="12" />
+                    </svg>
                   </div>
                   <div className="min-w-0">
                     <p className="text-slate-400 text-[9px] uppercase font-bold tracking-wider font-mono">PAYLOAD ARCHITECTURE</p>
@@ -283,9 +288,12 @@ export const MissionBootScreen: React.FC<MissionBootScreenProps> = ({ onComplete
             {/* Card 2 */}
             <div className="bg-[#0C1220]/90 border border-[#1F2937] p-4 rounded-2xl space-y-3 hover:border-[#00D4FF]/50 transition-all duration-300 shadow-lg group">
               <div className="flex items-start justify-between gap-2 border-b border-[#1F2937]/80 pb-2.5">
-                <div className="flex items-center space-x-2 min-w-0">
-                  <div className="p-2 rounded-xl bg-[#00D4FF]/10 border border-[#00D4FF]/30 flex-shrink-0 text-[#00D4FF]">
-                    <Layers className="w-4 h-4" />
+                <div className="flex items-center space-x-2.5 min-w-0">
+                  <div className="w-8 h-8 rounded-lg bg-[#070B14] border border-[#00D4FF]/40 p-1 flex items-center justify-center shadow-cyan-glow flex-shrink-0 text-[#00D4FF]">
+                    <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="1.5">
+                      <path d="M 3 3 L 3 21 L 21 21" strokeWidth="1.5" />
+                      <path d="M 3 17 Q 8 7 13 13 T 21 7" stroke="#00D4FF" strokeWidth="1.8" fill="none" />
+                    </svg>
                   </div>
                   <div className="min-w-0">
                     <p className="text-slate-400 text-[9px] uppercase font-bold tracking-wider font-mono">VISUALIZATION ENGINE</p>
@@ -303,9 +311,13 @@ export const MissionBootScreen: React.FC<MissionBootScreenProps> = ({ onComplete
             {/* Card 3 (Amber Accent) */}
             <div className="bg-[#0C1220]/90 border border-[#1F2937] p-4 rounded-2xl space-y-3 hover:border-[#FFC857]/50 transition-all duration-300 shadow-lg group">
               <div className="flex items-start justify-between gap-2 border-b border-[#1F2937]/80 pb-2.5">
-                <div className="flex items-center space-x-2 min-w-0">
-                  <div className="p-2 rounded-xl bg-[#FFC857]/10 border border-[#FFC857]/30 flex-shrink-0 text-[#FFC857]">
-                    <Wifi className="w-4 h-4" />
+                <div className="flex items-center space-x-2.5 min-w-0">
+                  <div className="w-8 h-8 rounded-lg bg-[#070B14] border border-[#FFC857]/40 p-1 flex items-center justify-center shadow-amber-glow flex-shrink-0 text-[#FFC857]">
+                    <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="1.5">
+                      <rect x="5" y="5" width="14" height="14" rx="2" strokeWidth="1.5" />
+                      <path d="M 9 2 L 9 5 M 15 2 L 15 5 M 9 19 L 9 22 M 15 19 L 15 22 M 2 9 L 5 9 M 2 15 L 5 15 M 19 9 L 22 9 M 19 15 L 22 15" strokeWidth="1.5" />
+                      <circle cx="12" cy="12" r="2" fill="#FFC857" />
+                    </svg>
                   </div>
                   <div className="min-w-0">
                     <p className="text-slate-400 text-[9px] uppercase font-bold tracking-wider font-mono">HARDWARE INTERFACE</p>
@@ -414,8 +426,12 @@ export const MissionBootScreen: React.FC<MissionBootScreenProps> = ({ onComplete
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 font-mono text-xs text-left">
             {/* Capability 1 */}
             <div className="bg-[#0C1220]/90 border border-[#1F2937] p-5 rounded-2xl space-y-2.5 hover:border-[#00D4FF]/50 transition-all">
-              <div className="p-2.5 w-fit rounded-xl bg-[#00D4FF]/10 text-[#00D4FF] border border-[#00D4FF]/30">
-                <Database className="w-5 h-5" />
+              <div className="w-10 h-10 rounded-xl bg-[#070B14] border border-[#00D4FF]/40 p-1.5 flex items-center justify-center shadow-cyan-glow text-[#00D4FF]">
+                <svg viewBox="0 0 32 32" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <line x1="2" y1="16" x2="30" y2="16" stroke="currentColor" strokeOpacity="0.2" strokeDasharray="1 1" />
+                  <path d="M 2 16 L 7 16 L 10 7 L 14 25 L 18 11 L 21 19 L 24 16 L 30 16" stroke="#00D4FF" strokeWidth="1.8" strokeLinecap="round" />
+                  <circle cx="18" cy="11" r="1.8" fill="#00FF84" />
+                </svg>
               </div>
               <h4 className="font-orbitron font-bold text-sm text-slate-100">1Hz Telemetry Ingestion</h4>
               <p className="text-slate-400 text-[11px] leading-relaxed">
@@ -425,8 +441,13 @@ export const MissionBootScreen: React.FC<MissionBootScreenProps> = ({ onComplete
 
             {/* Capability 2 */}
             <div className="bg-[#0C1220]/90 border border-[#1F2937] p-5 rounded-2xl space-y-2.5 hover:border-[#00D4FF]/50 transition-all">
-              <div className="p-2.5 w-fit rounded-xl bg-[#00FF84]/10 text-[#00FF84] border border-[#00FF84]/30">
-                <MapPin className="w-5 h-5" />
+              <div className="w-10 h-10 rounded-xl bg-[#070B14] border border-[#00FF84]/40 p-1.5 flex items-center justify-center shadow-green-glow text-[#00FF84]">
+                <svg viewBox="0 0 32 32" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <circle cx="16" cy="16" r="13" stroke="currentColor" strokeWidth="1.2" strokeOpacity="0.4" />
+                  <line x1="16" y1="2" x2="16" y2="30" stroke="currentColor" strokeWidth="1" strokeOpacity="0.6" />
+                  <line x1="2" y1="16" x2="30" y2="16" stroke="currentColor" strokeWidth="1" strokeOpacity="0.6" />
+                  <circle cx="16" cy="16" r="2.5" fill="#00FF84" />
+                </svg>
               </div>
               <h4 className="font-orbitron font-bold text-sm text-slate-100">Leaflet GIS Spatial Map</h4>
               <p className="text-slate-400 text-[11px] leading-relaxed">
@@ -436,8 +457,13 @@ export const MissionBootScreen: React.FC<MissionBootScreenProps> = ({ onComplete
 
             {/* Capability 3 */}
             <div className="bg-[#0C1220]/90 border border-[#1F2937] p-5 rounded-2xl space-y-2.5 hover:border-[#00D4FF]/50 transition-all">
-              <div className="p-2.5 w-fit rounded-xl bg-[#FFC857]/10 text-[#FFC857] border border-[#FFC857]/30">
-                <Box className="w-5 h-5" />
+              <div className="w-10 h-10 rounded-xl bg-[#070B14] border border-[#FFC857]/40 p-1.5 flex items-center justify-center shadow-amber-glow text-[#FFC857]">
+                <svg viewBox="0 0 32 32" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <path d="M 16 4 L 27 10 L 27 22 L 16 28 L 5 22 L 5 10 Z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
+                  <line x1="16" y1="4" x2="16" y2="16" stroke="currentColor" strokeWidth="1.2" />
+                  <line x1="5" y1="10" x2="16" y2="16" stroke="currentColor" strokeWidth="1.2" />
+                  <line x1="27" y1="10" x2="16" y2="16" stroke="currentColor" strokeWidth="1.2" />
+                </svg>
               </div>
               <h4 className="font-orbitron font-bold text-sm text-slate-100">Three.js 3D Kinematics</h4>
               <p className="text-slate-400 text-[11px] leading-relaxed">
@@ -447,8 +473,12 @@ export const MissionBootScreen: React.FC<MissionBootScreenProps> = ({ onComplete
 
             {/* Capability 4 */}
             <div className="bg-[#0C1220]/90 border border-[#1F2937] p-5 rounded-2xl space-y-2.5 hover:border-[#00D4FF]/50 transition-all">
-              <div className="p-2.5 w-fit rounded-xl bg-purple-500/10 text-purple-400 border border-purple-500/30">
-                <Terminal className="w-5 h-5" />
+              <div className="w-10 h-10 rounded-xl bg-[#070B14] border border-purple-500/40 p-1.5 flex items-center justify-center shadow-purple-glow text-purple-400">
+                <svg viewBox="0 0 32 32" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <rect x="4" y="5" width="24" height="22" rx="3" stroke="currentColor" strokeWidth="1.5" fill="#070B14" />
+                  <path d="M 8 12 L 14 12 M 8 16 L 20 16 M 8 20 L 16 20" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+                  <circle cx="20" cy="12" r="1.5" fill="#00FF84" />
+                </svg>
               </div>
               <h4 className="font-orbitron font-bold text-sm text-slate-100">4-Digit Diagnostic Codes</h4>
               <p className="text-slate-400 text-[11px] leading-relaxed">
@@ -458,8 +488,12 @@ export const MissionBootScreen: React.FC<MissionBootScreenProps> = ({ onComplete
 
             {/* Capability 5 */}
             <div className="bg-[#0C1220]/90 border border-[#1F2937] p-5 rounded-2xl space-y-2.5 hover:border-[#00D4FF]/50 transition-all">
-              <div className="p-2.5 w-fit rounded-xl bg-[#00D4FF]/10 text-[#00D4FF] border border-[#00D4FF]/30">
-                <Radio className="w-5 h-5" />
+              <div className="w-10 h-10 rounded-xl bg-[#070B14] border border-[#00D4FF]/40 p-1.5 flex items-center justify-center shadow-cyan-glow text-[#00D4FF]">
+                <svg viewBox="0 0 32 32" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <circle cx="16" cy="16" r="13" stroke="currentColor" strokeWidth="1.2" strokeOpacity="0.4" />
+                  <circle cx="16" cy="16" r="4" strokeDasharray="1 1" />
+                  <circle cx="16" cy="16" r="2" fill="#00D4FF" />
+                </svg>
               </div>
               <h4 className="font-orbitron font-bold text-sm text-slate-100">Web Serial API Interface</h4>
               <p className="text-slate-400 text-[11px] leading-relaxed">
@@ -469,8 +503,11 @@ export const MissionBootScreen: React.FC<MissionBootScreenProps> = ({ onComplete
 
             {/* Capability 6 */}
             <div className="bg-[#0C1220]/90 border border-[#1F2937] p-5 rounded-2xl space-y-2.5 hover:border-[#00D4FF]/50 transition-all">
-              <div className="p-2.5 w-fit rounded-xl bg-[#00FF84]/10 text-[#00FF84] border border-[#00FF84]/30">
-                <Download className="w-5 h-5" />
+              <div className="w-10 h-10 rounded-xl bg-[#070B14] border border-[#00FF84]/40 p-1.5 flex items-center justify-center shadow-green-glow text-[#00FF84]">
+                <svg viewBox="0 0 32 32" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <path d="M 16 4 L 16 20 M 16 20 L 10 14 M 16 20 L 22 14" strokeWidth="2" strokeLinecap="round" />
+                  <path d="M 6 24 L 26 24" strokeWidth="2" strokeLinecap="round" />
+                </svg>
               </div>
               <h4 className="font-orbitron font-bold text-sm text-slate-100">Audit Logs & Data Export</h4>
               <p className="text-slate-400 text-[11px] leading-relaxed">

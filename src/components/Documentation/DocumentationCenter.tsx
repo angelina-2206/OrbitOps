@@ -626,22 +626,114 @@ void sendTelemetryPacket() {
                 {/* Modern Visual Flow Diagram */}
                 <div className="flex flex-col space-y-3">
                   {[
-                    { title: 'Telemetry Simulator', icon: Radio, desc: 'Generates 18 telemetry fields @ 1 Hz physics clock', color: '#00D4FF' },
-                    { title: 'Data Processing Engine', icon: Cpu, desc: 'Validates bounds, computes lapse rates, & evaluates hex fault codes', color: '#00FF84' },
-                    { title: 'Dashboard Modules', icon: Layers, desc: 'Ingests validated telemetry packet into Zustand global state store', color: '#FFC857' },
-                    { title: 'Graphs', icon: LineChart, desc: 'Plots continuous time-series curves (Altitude, Temp, Volt)', color: '#00D4FF' },
-                    { title: 'GIS Tracking', icon: MapPin, desc: 'Updates Leaflet map position marker & predicted landing ellipse', color: '#00FF84' },
-                    { title: '3D Visualization', icon: Box, desc: 'Renders Euler roll/pitch/yaw orientation in Three.js WebGL canvas', color: 'rgb(192, 132, 252)' },
-                    { title: 'Diagnostics', icon: Terminal, desc: 'Evaluates subsystem health metrics & triggers alarm audio beeps', color: '#FFC857' },
-                    { title: 'Data Export', icon: Download, desc: 'Exports timestamped telemetry records as CSV, JSON, or PNG graph', color: '#00FF84' },
+                    {
+                      title: 'Telemetry Simulator',
+                      desc: 'Generates 18 telemetry fields @ 1 Hz physics clock',
+                      color: '#00D4FF',
+                      svg: (
+                        <svg viewBox="0 0 24 24" className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="1.5">
+                          <circle cx="12" cy="12" r="9" strokeOpacity="0.4" />
+                          <circle cx="12" cy="12" r="4" strokeDasharray="1 1" />
+                          <path d="M 12 2 L 12 22 M 2 12 L 22 12" strokeOpacity="0.5" />
+                          <circle cx="12" cy="12" r="2" fill="#00D4FF" />
+                        </svg>
+                      )
+                    },
+                    {
+                      title: 'Data Processing Engine',
+                      desc: 'Validates bounds, computes lapse rates, & evaluates hex fault codes',
+                      color: '#00FF84',
+                      svg: (
+                        <svg viewBox="0 0 24 24" className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="1.5">
+                          <rect x="5" y="5" width="14" height="14" rx="2" strokeWidth="1.5" />
+                          <path d="M 9 2 L 9 5 M 15 2 L 15 5 M 9 19 L 9 22 M 15 19 L 15 22 M 2 9 L 5 9 M 2 15 L 5 15 M 19 9 L 22 9 M 19 15 L 22 15" strokeWidth="1.5" />
+                          <rect x="9" y="9" width="6" height="6" fill="#00FF84" fillOpacity="0.4" />
+                        </svg>
+                      )
+                    },
+                    {
+                      title: 'Dashboard Modules',
+                      desc: 'Ingests validated telemetry packet into Zustand global state store',
+                      color: '#FFC857',
+                      svg: (
+                        <svg viewBox="0 0 24 24" className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="1.5">
+                          <rect x="3" y="4" width="18" height="4" rx="1" />
+                          <rect x="3" y="10" width="18" height="4" rx="1" />
+                          <rect x="3" y="16" width="18" height="4" rx="1" />
+                          <circle cx="6" cy="6" r="1" fill="#FFC857" />
+                          <circle cx="6" cy="12" r="1" fill="#00FF84" />
+                          <circle cx="6" cy="18" r="1" fill="#00D4FF" />
+                        </svg>
+                      )
+                    },
+                    {
+                      title: 'Graphs',
+                      desc: 'Plots continuous time-series curves (Altitude, Temp, Volt)',
+                      color: '#00D4FF',
+                      svg: (
+                        <svg viewBox="0 0 24 24" className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="1.5">
+                          <path d="M 3 3 L 3 21 L 21 21" strokeWidth="1.5" />
+                          <path d="M 3 18 Q 8 6 13 14 T 21 8" stroke="#00D4FF" strokeWidth="1.8" fill="none" />
+                          <circle cx="13" cy="14" r="1.5" fill="#00FF84" />
+                        </svg>
+                      )
+                    },
+                    {
+                      title: 'GIS Tracking',
+                      desc: 'Updates Leaflet map position marker & predicted landing ellipse',
+                      color: '#00FF84',
+                      svg: (
+                        <svg viewBox="0 0 24 24" className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="1.5">
+                          <circle cx="12" cy="12" r="9" strokeOpacity="0.4" />
+                          <line x1="12" y1="3" x2="12" y2="21" strokeOpacity="0.5" />
+                          <line x1="3" y1="12" x2="21" y2="12" strokeOpacity="0.5" />
+                          <circle cx="12" cy="12" r="2.5" fill="#00FF84" />
+                        </svg>
+                      )
+                    },
+                    {
+                      title: '3D Visualization',
+                      desc: 'Renders Euler roll/pitch/yaw orientation in Three.js WebGL canvas',
+                      color: 'rgb(192, 132, 252)',
+                      svg: (
+                        <svg viewBox="0 0 24 24" className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="1.5">
+                          <path d="M 12 3 L 20 7 L 20 17 L 12 21 L 4 17 L 4 7 Z" strokeWidth="1.5" />
+                          <line x1="12" y1="3" x2="12" y2="12" />
+                          <line x1="4" y1="7" x2="12" y2="12" />
+                          <line x1="20" y1="7" x2="12" y2="12" />
+                        </svg>
+                      )
+                    },
+                    {
+                      title: 'Diagnostics',
+                      desc: 'Evaluates subsystem health metrics & triggers alarm audio beeps',
+                      color: '#FFC857',
+                      svg: (
+                        <svg viewBox="0 0 24 24" className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="1.5">
+                          <rect x="4" y="4" width="16" height="16" rx="2" strokeWidth="1.5" />
+                          <path d="M 7 10 L 11 10 M 7 14 L 17 14" strokeWidth="1.8" />
+                          <circle cx="15" cy="10" r="1.2" fill="#FFC857" />
+                        </svg>
+                      )
+                    },
+                    {
+                      title: 'Data Export',
+                      desc: 'Exports timestamped telemetry records as CSV, JSON, or PNG graph',
+                      color: '#00FF84',
+                      svg: (
+                        <svg viewBox="0 0 24 24" className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="1.5">
+                          <path d="M 12 3 L 12 15 M 12 15 L 7 10 M 12 15 L 17 10" strokeWidth="1.8" strokeLinecap="round" />
+                          <path d="M 4 17 L 4 20 L 20 20 L 20 17" strokeWidth="1.5" />
+                        </svg>
+                      )
+                    },
                   ].map((step, idx, arr) => {
-                    const StepIcon = step.icon;
                     return (
                       <div key={idx} className="flex flex-col items-center">
                         <div className="w-full bg-[#070B14] border border-[#1F2937] hover:border-[#00D4FF]/50 p-4 rounded-xl flex items-center justify-between transition-all group shadow-md">
                           <div className="flex items-center space-x-3 min-w-0">
-                            <div className="p-2 rounded-lg bg-[#111827] border border-[#1F2937] flex-shrink-0" style={{ color: step.color }}>
-                              <StepIcon className="w-4 h-4" />
+                            <div className="w-8 h-8 rounded-lg bg-[#111827] border border-[#1F2937] flex items-center justify-center flex-shrink-0" style={{ color: step.color }}>
+                              {step.svg}
                             </div>
                             <div className="min-w-0">
                               <p className="font-orbitron font-bold text-xs text-slate-100 group-hover:text-[#00D4FF] transition-colors truncate">
