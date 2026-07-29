@@ -191,10 +191,13 @@ export const MissionBootScreen: React.FC<MissionBootScreenProps> = ({ onComplete
           <div className="flex items-center space-x-2 font-mono text-[10px]">
             <button
               onClick={() => setShowDocCenter(true)}
-              className="px-3 py-1.5 rounded-xl bg-[#00D4FF]/10 hover:bg-[#00D4FF]/20 text-[#00D4FF] border border-[#00D4FF]/40 font-orbitron font-bold flex items-center gap-1.5 transition-all shadow-cyan-glow hover:scale-105"
+              className="px-3.5 py-1.5 rounded-xl bg-[#00D4FF]/10 hover:bg-[#00D4FF]/20 text-[#00D4FF] border border-[#00D4FF]/40 font-orbitron font-bold flex items-center gap-2 transition-all shadow-cyan-glow hover:scale-105 group"
             >
-              <BookOpen className="w-3.5 h-3.5" />
-              <span>DOCUMENTATION</span>
+              <BookOpen className="w-3.5 h-3.5 text-[#00D4FF]" />
+              <span>MISSION BRIEFING & DOCS</span>
+              <span className="px-1.5 py-0.5 rounded-full bg-[#00FF84]/20 text-[#00FF84] border border-[#00FF84]/40 text-[9px] font-mono font-bold tracking-wider uppercase">
+                v2.0
+              </span>
             </button>
             <span className="px-2 py-1 rounded bg-[#0C1220] border border-[#1F2937] text-slate-300 hidden md:flex items-center gap-1">
               <span className="w-1.5 h-1.5 rounded-full bg-[#00FF84]" /> SIMULATION MODE
@@ -358,10 +361,13 @@ export const MissionBootScreen: React.FC<MissionBootScreenProps> = ({ onComplete
                 </button>
                 <button
                   onClick={() => setShowDocCenter(true)}
-                  className="py-3.5 px-5 rounded-xl bg-[#0C1220] hover:bg-[#1E293B] text-[#00D4FF] border border-[#00D4FF]/40 font-orbitron font-bold text-xs md:text-sm tracking-widest flex items-center justify-center space-x-2 transition-all duration-300 hover:scale-[1.02]"
+                  className="py-3.5 px-5 rounded-xl bg-[#0C1220] hover:bg-[#1E293B] text-[#00D4FF] border border-[#00D4FF]/40 font-orbitron font-bold text-xs md:text-sm tracking-widest flex items-center justify-center space-x-2 transition-all duration-300 hover:scale-[1.02] shadow-md group"
                 >
-                  <BookOpen className="w-4 h-4 text-[#00D4FF]" />
-                  <span>MISSION BRIEF</span>
+                  <BookOpen className="w-4 h-4 text-[#00D4FF] group-hover:scale-110 transition-transform" />
+                  <span>MISSION BRIEFING & DOCS</span>
+                  <span className="px-1.5 py-0.5 rounded-md bg-[#00D4FF]/20 text-[#00D4FF] border border-[#00D4FF]/40 text-[9px] font-mono font-bold">
+                    SPEC
+                  </span>
                 </button>
               </div>
             ) : (
