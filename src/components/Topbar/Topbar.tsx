@@ -6,7 +6,7 @@ import {
   Play,
   Square,
   FileSpreadsheet,
-  FileCode,
+  Download,
   Wifi,
   Activity,
   Clock,
@@ -75,7 +75,7 @@ export const Topbar: React.FC = () => {
       link.download = `OrbitOps_Telemetry_Graph_${Date.now()}.png`;
       link.href = chartCanvas.toDataURL('image/png');
       link.click();
-      toast.success('Exported Telemetry Graph to PNG');
+      toast.success('Exported Telemetry Graph Image to PNG');
     } else {
       toast.info('Telemetry Graph Canvas ready');
     }
@@ -147,7 +147,7 @@ export const Topbar: React.FC = () => {
         </div>
       </div>
 
-      {/* Right Controls & Stream Action Buttons (Always Priority Visible) */}
+      {/* Right Controls & Stream Action Buttons */}
       <div className="flex items-center space-x-1.5 flex-shrink-0 z-10">
         {/* Sync Time Button */}
         <button
@@ -159,22 +159,24 @@ export const Topbar: React.FC = () => {
           <span className="hidden xl:inline text-[11px]">SYNC TIME</span>
         </button>
 
-        {/* Export CSV Button */}
+        {/* User-Friendly Clear Export CSV Button */}
         <button
           onClick={handleExportCSV}
-          className="h-8 w-8 rounded-lg bg-[#111827] hover:bg-[#1F2937] text-[#00D4FF] border border-[#1F2937] text-xs font-mono transition-all inline-flex items-center justify-center flex-shrink-0"
-          title="Export Telemetry CSV Log"
+          className="h-8 px-2.5 rounded-lg bg-[#111827] hover:bg-[#00D4FF]/10 text-[#00D4FF] border border-[#00D4FF]/30 text-xs font-mono transition-all inline-flex items-center justify-center space-x-1.5 whitespace-nowrap flex-shrink-0 group"
+          title="Export Telemetry Log Spreadsheet (CSV)"
         >
-          <FileSpreadsheet className="w-4 h-4" />
+          <FileSpreadsheet className="w-3.5 h-3.5 text-[#00D4FF] group-hover:scale-110 transition-transform" />
+          <span className="text-[11px] font-bold">EXPORT CSV</span>
         </button>
 
-        {/* Export Graph Button */}
+        {/* User-Friendly Clear Export Graph Image Button */}
         <button
           onClick={handleExportGraph}
-          className="h-8 w-8 rounded-lg bg-[#111827] hover:bg-[#1F2937] text-amber-400 border border-[#1F2937] text-xs font-mono transition-all inline-flex items-center justify-center flex-shrink-0"
-          title="Export Telemetry Graph Image"
+          className="h-8 px-2.5 rounded-lg bg-[#111827] hover:bg-amber-500/10 text-amber-400 border border-amber-500/30 text-xs font-mono transition-all inline-flex items-center justify-center space-x-1.5 whitespace-nowrap flex-shrink-0 group"
+          title="Export Oscilloscope Graph Image (PNG)"
         >
-          <FileCode className="w-4 h-4" />
+          <Download className="w-3.5 h-3.5 text-amber-400 group-hover:scale-110 transition-transform" />
+          <span className="text-[11px] font-bold">EXPORT GRAPH</span>
         </button>
 
         {/* Mission Brief Button */}
@@ -207,7 +209,7 @@ export const Topbar: React.FC = () => {
           )}
         </button>
 
-        {/* Start / Stop Stream Main Action Button (ALWAYS VISIBLE & PROMINENT) */}
+        {/* Start / Stop Stream Main Action Button */}
         {isStreaming ? (
           <button
             onClick={stopTelemetry}
