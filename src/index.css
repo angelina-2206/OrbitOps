@@ -55,7 +55,6 @@
   scrollbar-color: #00D4FF #0A0F1A;
 }
 
-
 /* Custom Leaflet Map Dark Styling */
 .leaflet-container {
   background-color: #0A0F1A !important;
@@ -102,6 +101,104 @@
 }
 
 .pulsing-sat-marker {
-  animation: mapPulse 1.8s infinite;
+  animation: mapPulse 2s infinite;
   border-radius: 50%;
+}
+
+/* OrbitOps Deep Space Animated Starfield */
+@keyframes animStar {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-2000px);
+  }
+}
+
+@keyframes starTwinkle {
+  0%, 100% { opacity: 0.3; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.3); }
+}
+
+.starfield-bg {
+  background: radial-gradient(ellipse at bottom, #0B1E3B 0%, #050811 75%, #020307 100%);
+  overflow: hidden;
+}
+
+/* Distant 1px Micro-Stars (Slow drift) */
+.stars-sm {
+  width: 1px;
+  height: 1px;
+  background: transparent;
+  box-shadow: 
+    120px 300px #ffffff, 450px 800px #ffffff, 890px 150px #ffffff,
+    1320px 650px #ffffff, 1600px 400px #ffffff, 300px 1100px #ffffff,
+    750px 1400px #ffffff, 1150px 950px #ffffff, 1550px 1200px #ffffff,
+    250px 1700px #ffffff, 680px 1900px #ffffff, 1400px 1850px #ffffff,
+    180px 450px #ffffff, 920px 720px #ffffff, 1250px 320px #ffffff,
+    550px 1550px #ffffff, 1050px 1750px #ffffff, 1720px 920px #ffffff;
+  animation: animStar 80s linear infinite;
+}
+
+.stars-sm:after {
+  content: " ";
+  position: absolute;
+  top: 2000px;
+  width: 1px;
+  height: 1px;
+  background: transparent;
+  box-shadow: 
+    120px 300px #ffffff, 450px 800px #ffffff, 890px 150px #ffffff,
+    1320px 650px #ffffff, 1600px 400px #ffffff, 300px 1100px #ffffff,
+    750px 1400px #ffffff, 1150px 950px #ffffff, 1550px 1200px #ffffff,
+    250px 1700px #ffffff, 680px 1900px #ffffff, 1400px 1850px #ffffff;
+}
+
+/* Medium 2px OrbitOps Cyan (#00D4FF) Stars */
+.stars-md {
+  width: 2px;
+  height: 2px;
+  background: transparent;
+  box-shadow: 
+    220px 150px #00D4FF, 650px 500px #00D4FF, 1100px 250px #00D4FF,
+    1450px 850px #00D4FF, 380px 1250px #00D4FF, 820px 1650px #00D4FF,
+    1280px 1400px #00D4FF, 950px 350px #00D4FF, 1680px 600px #00D4FF,
+    420px 880px #00D4FF, 1500px 1150px #00D4FF, 760px 100px #00D4FF;
+  animation: animStar 50s linear infinite;
+}
+
+.stars-md:after {
+  content: " ";
+  position: absolute;
+  top: 2000px;
+  width: 2px;
+  height: 2px;
+  background: transparent;
+  box-shadow: 
+    220px 150px #00D4FF, 650px 500px #00D4FF, 1100px 250px #00D4FF,
+    1450px 850px #00D4FF, 380px 1250px #00D4FF, 820px 1650px #00D4FF;
+}
+
+/* Large 3px OrbitOps Emerald (#00FF84) & Gold (#FFC857) Twinkling Micro-Nodes */
+.stars-lg {
+  width: 3px;
+  height: 3px;
+  background: transparent;
+  box-shadow: 
+    310px 420px #00FF84, 850px 920px #00FF84, 1420px 310px #00FF84,
+    520px 1620px #00FF84, 1180px 1100px #FFC857, 1620px 1450px #00FF84,
+    210px 980px #FFC857, 980px 1350px #00FF84;
+  animation: animStar 30s linear infinite, starTwinkle 3s ease-in-out infinite;
+}
+
+.stars-lg:after {
+  content: " ";
+  position: absolute;
+  top: 2000px;
+  width: 3px;
+  height: 3px;
+  background: transparent;
+  box-shadow: 
+    310px 420px #00FF84, 850px 920px #00FF84, 1420px 310px #00FF84,
+    520px 1620px #00FF84, 1180px 1100px #FFC857;
 }

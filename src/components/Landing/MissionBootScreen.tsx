@@ -120,14 +120,23 @@ export const MissionBootScreen: React.FC<MissionBootScreenProps> = ({ onComplete
 
   return (
     <div className="fixed inset-0 z-50 bg-[#050811] text-slate-100 font-space overflow-y-auto custom-scrollbar select-none">
-      {/* Background Starfield & Subtle Grid */}
-      <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#0B1E3B] via-[#050811] to-[#020307] opacity-90 z-0 pointer-events-none" />
+      {/* Deep Space Radial Gradient Background */}
+      <div className="fixed inset-0 starfield-bg opacity-95 z-0 pointer-events-none" />
+
+      {/* Multi-Layer Animated Starfield Particles (Matching OrbitOps Theme) */}
+      <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+        <div className="stars-sm" />
+        <div className="stars-md" />
+        <div className="stars-lg" />
+      </div>
+
+      {/* Subtle Aerospace Vector HUD Grid */}
       <div className="fixed inset-0 bg-[linear-gradient(to_right,#1f293715_1px,transparent_1px),linear-gradient(to_bottom,#1f293715_1px,transparent_1px)] bg-[size:3.5rem_3.5rem] z-0 pointer-events-none" />
 
       {/* Rotating Background Orbital Rings */}
-      <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full border border-[#00D4FF]/10 pointer-events-none z-0 animate-spin-slow opacity-25 flex items-center justify-center">
-        <div className="w-[600px] h-[600px] rounded-full border border-dashed border-[#00FF84]/15" />
-        <div className="w-[400px] h-[400px] rounded-full border border-[#FFC857]/10" />
+      <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full border border-[#00D4FF]/15 pointer-events-none z-0 animate-spin-slow opacity-30 flex items-center justify-center">
+        <div className="w-[600px] h-[600px] rounded-full border border-dashed border-[#00FF84]/20" />
+        <div className="w-[400px] h-[400px] rounded-full border border-[#FFC857]/15" />
       </div>
 
       {/* Pre-Boot Initializing Screen */}
