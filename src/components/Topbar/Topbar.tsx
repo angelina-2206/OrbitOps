@@ -7,7 +7,6 @@ import {
   Square,
   FileSpreadsheet,
   FileCode,
-  Settings,
   Wifi,
   Activity,
   Clock,
@@ -208,14 +207,6 @@ export const Topbar: React.FC = () => {
           <span className="hidden lg:inline text-[11px] font-bold">
             {audioMuted ? 'MUTED' : 'AUDIO'}
           </span>
-        </button>
-
-        <button
-          onClick={() => toast.info('System Settings Dialog')}
-          className="h-8 w-8 rounded-lg bg-[#111827] hover:bg-[#1F2937] text-slate-300 border border-[#1F2937] transition-all inline-flex items-center justify-center flex-shrink-0"
-          title="Settings"
-        >
-          <Settings className="w-4 h-4 text-slate-400 hover:text-slate-200" />
         </button>
 
         {isStreaming ? (
