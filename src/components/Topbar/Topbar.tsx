@@ -134,24 +134,6 @@ export const Topbar: React.FC = () => {
 
       {/* Right Controls & Stream Action Buttons */}
       <div className="flex items-center space-x-1.5 flex-shrink-0 z-10">
-        {/* Realistic Aerospace Control Console Switch Button */}
-        <button
-          onClick={toggleCommandConsole}
-          className="h-8 px-2.5 rounded-lg bg-gradient-to-b from-[#0F172A] to-[#0A0F1D] hover:from-[#1E293B] hover:to-[#0D1525] text-slate-200 border border-[#00D4FF]/40 hover:border-[#00D4FF]/80 text-xs font-mono font-bold transition-all shadow-[0_0_12px_rgba(0,212,255,0.15)] hover:shadow-[0_0_18px_rgba(0,212,255,0.35)] inline-flex items-center justify-center space-x-2 whitespace-nowrap flex-shrink-0 group active:scale-95"
-          title="Open Mission Operations Command Console (` or Ctrl+Shift+C)"
-        >
-          <div className="relative flex items-center justify-center">
-            <Terminal className="w-3.5 h-3.5 text-[#00D4FF] group-hover:scale-110 transition-transform" />
-            <span className="absolute -top-0.5 -right-0.5 w-1.5 h-1.5 rounded-full bg-[#00FF84] animate-pulse" />
-          </div>
-          <span className="hidden lg:inline text-[10px] font-orbitron tracking-wider text-slate-100 uppercase">
-            CMD CONSOLE
-          </span>
-          <span className="hidden lg:inline-block px-1.5 py-0.2 rounded bg-[#00D4FF]/15 text-[#00D4FF] border border-[#00D4FF]/40 text-[9px] font-mono font-normal">
-            `
-          </span>
-        </button>
-
         {/* Sync Time Button */}
         <button
           onClick={handleSyncTime}
