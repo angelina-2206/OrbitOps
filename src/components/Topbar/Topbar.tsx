@@ -88,16 +88,18 @@ export const Topbar: React.FC = () => {
       {/* Left Branding & Live Clock Cluster */}
       <div className="flex items-center space-x-2 md:space-x-4 min-w-0 flex-shrink">
         {/* OrbitOps Aerospace Header Logo */}
-        <div className="flex items-center space-x-2 cursor-pointer" title="OrbitOps Ground Station Control">
-          <OrbitOpsLogo size={28} />
-          <div className="hidden sm:flex flex-col">
-            <span className="font-orbitron font-extrabold text-sm tracking-wider text-slate-100 flex items-center gap-1.5">
-              ORBIT<span className="text-[#00D4FF]">OPS</span>
-              <span className="text-[9px] bg-[#00D4FF]/10 text-[#00D4FF] px-1.5 py-0.2 rounded border border-[#00D4FF]/40 font-mono">
+        <div className="flex items-center space-x-2.5 cursor-pointer flex-shrink-0" title="OrbitOps Ground Station Control">
+          <OrbitOpsLogo size={30} />
+          <div className="hidden sm:flex flex-col justify-center">
+            <div className="flex items-center space-x-1.5 leading-none">
+              <span className="font-orbitron font-extrabold text-sm tracking-wider text-slate-100">
+                ORBIT<span className="text-[#00D4FF]">OPS</span>
+              </span>
+              <span className="text-[9px] font-mono text-[#00D4FF] bg-[#00D4FF]/10 px-1.5 py-0.5 rounded border border-[#00D4FF]/30 leading-none">
                 GCS v2.0
               </span>
-            </span>
-            <span className="text-[10px] text-slate-400 font-mono tracking-tight leading-none">
+            </div>
+            <span className="text-[9px] text-slate-400 font-mono tracking-widest uppercase leading-tight mt-0.5">
               AEROSPACE MISSION CONTROL
             </span>
           </div>
