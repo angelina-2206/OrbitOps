@@ -92,6 +92,20 @@ Uses Three.js to render an interactive 3D CubeSat model that responds dynamicall
 ### 7. Telecommand Safety Execution System
 Guarded mission control command panel (`Deploy Payload`, `Emergency Parachute`, `Activate Redundant System`, `Reset Telemetry`, `Emergency Shutdown`) featuring dual-confirmation dialogs to eliminate accidental command triggers.
 
+### 8. Mission Operations Command Console (MOC CLI)
+Interactive aerospace engineering command console accessible via hotkeys (backtick `` ` ``, `Ctrl + Shift + C`, or `ESC` to exit) and a floating bottom-right `MOC CONSOLE` dock module:
+- **Comprehensive Command Matrix**:
+  - **SYSTEM**: `help`, `clear`, `version`, `status`, `uptime`, `time`, `date`
+  - **MISSION**: `mission start`, `mission stop`, `mission pause`, `mission resume`, `mission reset`, `mission summary`, `mission export`
+  - **TELEMETRY**: `telemetry`, `telemetry altitude`, `telemetry battery`, `telemetry gps`, `telemetry pressure`, `telemetry temperature`, `telemetry orientation`, `telemetry packets`, `telemetry signal`
+  - **MAP**: `map center`, `map home`, `map follow`, `map reset`
+  - **CAMERA**: `camera start`, `camera stop`, `camera capture`, `camera status`
+  - **DIAGNOSTICS**: `diag`, `health`, `errors`, `logs`, `connections`
+  - **SIMULATION FAULT INJECTION**: `simulate gps-loss`, `simulate battery-low`, `simulate sensor-failure`, `simulate payload`, `simulate parachute`, `simulate landing`, `simulate packet-loss`
+  - **FUTURE HARDWARE**: `serial connect`, `serial disconnect`, `esp32 connect`, `mqtt connect` (Hardware Integration Reserved)
+  - **EXTRAS**: `about`, `credits`, `stack`, `architecture`, `roadmap`, `modules`, `theme`, `license`
+- **CLI Autocomplete & History**: TAB completion with inline suggestions and `ArrowUp`/`ArrowDown` session history navigation.
+
 ---
 
 ## Directory Architecture
@@ -109,6 +123,7 @@ OrbitOps/
 │   │   ├── Camera/            # MediaDevices optical payload stream viewer
 │   │   ├── MissionControls/   # Safety-guarded telecommand execution panel
 │   │   ├── ErrorSystem/       # 4-Digit aerospace diagnostic status indicators
+│   │   ├── Console/           # Aerospace Mission Operations Command Console (MOC CLI)
 │   │   └── Layout/            # Single-screen 100vh grid layout container
 │   ├── hooks/
 │   │   ├── useWebSerial.ts    # Web Serial API manager for physical USB COM ports
