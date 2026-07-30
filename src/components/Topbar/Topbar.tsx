@@ -12,7 +12,8 @@ import {
   Clock,
   FileText,
   Volume2,
-  VolumeX
+  VolumeX,
+  Terminal
 } from 'lucide-react';
 import { toast } from 'sonner';
 
@@ -29,7 +30,8 @@ export const Topbar: React.FC = () => {
     stopTelemetry,
     toggleAudio,
     addLog,
-    setShowDocCenter
+    setShowDocCenter,
+    toggleCommandConsole
   } = useTelemetryStore();
 
   useEffect(() => {
@@ -83,58 +85,39 @@ export const Topbar: React.FC = () => {
 
   return (
     <header className="h-14 bg-[#070B14] border-b border-[#1F2937] px-3 md:px-4 flex items-center justify-between shadow-lg select-none z-40 sticky top-0 flex-shrink-0 gap-2 overflow-x-hidden">
-      {/* Left Brand Title */}
-      <div className="flex items-center space-x-2 flex-shrink-0">
-        <OrbitOpsLogo size={26} />
-        <div>
-          <div className="flex items-center space-x-1">
-            <h1 className="font-orbitron font-bold text-xs md:text-sm text-slate-100 tracking-wider flex items-center gap-1 leading-none">
+      {/* Left Branding & Live Clock Cluster */}
+      <div className="flex items-center space-x-2 md:space-x-4 min-w-0 flex-shrink">
+        {/* OrbitOps Aerospace Header Logo */}
+        <div className="flex items-center space-x-2 cursor-pointer" title="OrbitOps Ground Station Control">
+          <OrbitOpsLogo size={28} />
+          <div className="hidden sm:flex flex-col">
+            <span className="font-orbitron font-extrabold text-sm tracking-wider text-slate-100 flex items-center gap-1.5">
               ORBIT<span className="text-[#00D4FF]">OPS</span>
-              <span className="text-[8px] px-1 py-0.5 rounded bg-[#00D4FF]/10 text-[#00D4FF] border border-[#00D4FF]/30 font-semibold font-mono leading-none">
-                GCS
+              <span className="text-[9px] bg-[#00D4FF]/10 text-[#00D4FF] px-1.5 py-0.2 rounded border border-[#00D4FF]/40 font-mono">
+                GCS v2.0
               </span>
-            </h1>
+            </span>
+            <span className="text-[10px] text-slate-400 font-mono tracking-tight leading-none">
+              AEROSPACE MISSION CONTROL
+            </span>
           </div>
-          <p className="text-[7px] text-slate-400 tracking-widest uppercase font-mono hidden md:block mt-0.5 leading-none">
-            GROUND CONTROL
-          </p>
-        </div>
-      </div>
-
-      {/* Middle Status Indicators Bar - Show on 2XL screens to preserve right button visibility */}
-      <div className="hidden 2xl:flex items-center space-x-2 flex-shrink min-w-0">
-        {/* Mission Status Chip */}
-        <div className="h-8 px-2 rounded-lg bg-[#111827] border border-[#1F2937] text-xs font-mono inline-flex items-center space-x-1.5 whitespace-nowrap flex-shrink-0">
-          <span className="text-slate-400 text-[10px] leading-none">MISSION</span>
-          <span className="text-[#00FF84] font-bold font-orbitron text-[10px] px-1 py-0.5 rounded bg-[#00FF84]/10 border border-[#00FF84]/30 leading-none">
-            {currentPacket?.missionState || 'LANDED'}
-          </span>
         </div>
 
-        {/* Comms Link Chip */}
-        <div className="h-8 px-2 rounded-lg bg-[#111827] border border-[#1F2937] text-xs font-mono inline-flex items-center space-x-1 whitespace-nowrap flex-shrink-0">
-          <span className="text-slate-400 text-[10px] leading-none">COMMS</span>
-          <span className="text-[#00FF84] font-bold text-[10px] inline-flex items-center gap-1 leading-none">
-            STRONG
-            <Wifi className="w-3 h-3 text-[#00FF84] animate-pulse" />
-          </span>
+        {/* Dual Live Clocks (UTC & IST) */}
+        <div className="hidden md:flex items-center space-x-2 bg-[#111827] px-2.5 py-1 rounded-lg border border-[#1F2937] font-mono text-xs">
+          <Clock className="w-3.5 h-3.5 text-[#00D4FF] flex-shrink-0" />
+          <div className="flex items-center space-x-2">
+            <span className="text-[#00D4FF] font-bold tracking-wide">{utcTime || 'UTC --:--:--'}</span>
+            <span className="text-slate-600 font-normal">|</span>
+            <span className="text-slate-300">{istTime || 'IST --:--:--'}</span>
+          </div>
         </div>
 
-        {/* Telemetry Live Indicator */}
-        <div className="h-8 px-2 rounded-lg bg-[#111827] border border-[#1F2937] text-xs font-mono inline-flex items-center space-x-1 whitespace-nowrap flex-shrink-0">
-          <span className="text-slate-400 text-[10px] leading-none">TM</span>
-          <span className="text-[#00FF84] font-bold text-[10px] inline-flex items-center gap-1 leading-none">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#00FF84] animate-ping" />
-            LIVE
-          </span>
-        </div>
-
-        {/* UTC Time & IST Time Chip */}
-        <div className="h-8 px-2 rounded-lg bg-[#111827] border border-[#1F2937] text-xs font-mono inline-flex items-center space-x-1.5 whitespace-nowrap flex-shrink-0">
-          <Clock className="w-3 h-3 text-[#00D4FF] flex-shrink-0" />
-          <span className="text-slate-200 font-bold text-[10px] leading-none tracking-wider">{utcTime}</span>
-          <span className="text-slate-600 font-normal">|</span>
-          <span className="text-slate-400 text-[9px] leading-none tracking-wider">{istTime}</span>
+        {/* Connection Status Badge */}
+        <div className="hidden lg:flex items-center space-x-1.5 bg-[#111827] px-2.5 py-1 rounded-lg border border-[#1F2937] text-xs font-mono">
+          <Wifi className="w-3.5 h-3.5 text-[#00FF84] animate-pulse flex-shrink-0" />
+          <span className="text-slate-400 text-[10px]">RF LINK:</span>
+          <span className="text-[#00FF84] font-bold text-[11px] tracking-wider">SIMULATOR 115200 BAUD</span>
         </div>
 
         {/* Packet Count & RSSI */}
@@ -149,6 +132,16 @@ export const Topbar: React.FC = () => {
 
       {/* Right Controls & Stream Action Buttons */}
       <div className="flex items-center space-x-1.5 flex-shrink-0 z-10">
+        {/* Command Console Trigger Button */}
+        <button
+          onClick={toggleCommandConsole}
+          className="h-8 px-2.5 rounded-lg bg-[#00D4FF]/10 hover:bg-[#00D4FF]/20 text-[#00D4FF] border border-[#00D4FF]/40 text-xs font-mono font-bold transition-all shadow-cyan-glow inline-flex items-center justify-center space-x-1.5 whitespace-nowrap flex-shrink-0"
+          title="Open Aerospace Command Console (`)"
+        >
+          <Terminal className="w-3.5 h-3.5 flex-shrink-0 text-[#00D4FF]" />
+          <span className="hidden lg:inline text-[11px]">CONSOLE [`]</span>
+        </button>
+
         {/* Sync Time Button */}
         <button
           onClick={handleSyncTime}

@@ -14,6 +14,7 @@ interface TelemetryState {
   manualErrorCode: string;
   showLandingScreen: boolean;
   showDocCenter: boolean;
+  showCommandConsole: boolean;
 
   // Actions
   startTelemetry: () => void;
@@ -27,6 +28,8 @@ interface TelemetryState {
   setConnectionMode: (mode: ConnectionMode) => void;
   setShowLandingScreen: (show: boolean) => void;
   setShowDocCenter: (show: boolean) => void;
+  setShowCommandConsole: (show: boolean) => void;
+  toggleCommandConsole: () => void;
 }
 
 const initialPacket: TelemetryPacket = {
@@ -71,6 +74,7 @@ export const useTelemetryStore = create<TelemetryState>((set, get) => ({
   manualErrorCode: '0000',
   showLandingScreen: true,
   showDocCenter: false,
+  showCommandConsole: false,
 
   startTelemetry: () => {
     set({ isStreaming: true });
@@ -144,4 +148,13 @@ export const useTelemetryStore = create<TelemetryState>((set, get) => ({
   setShowDocCenter: (show: boolean) => {
     set({ showDocCenter: show });
   },
+
+  setShowCommandConsole: (show: boolean) => {
+    set({ showCommandConsole: show });
+  },
+
+  toggleCommandConsole: () => {
+    set((state) => ({ showCommandConsole: !state.showCommandConsole }));
+  },
 }));
+
